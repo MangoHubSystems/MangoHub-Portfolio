@@ -112,11 +112,11 @@ const formControlStyle = {
   transition: "all 0.3s ease",
 };
 
-const formControlFocusStyle = {
-  backgroundColor: "rgba(255, 255, 255, 0.08)",
-  borderColor: "rgba(60, 179, 113, 0.5)",
-  boxShadow: "0 0 0 0.2rem rgba(60, 179, 113, 0.15)",
-};
+// const formControlFocusStyle = {
+//   backgroundColor: "rgba(255, 255, 255, 0.08)",
+//   borderColor: "rgba(60, 179, 113, 0.5)",
+//   boxShadow: "0 0 0 0.2rem rgba(60, 179, 113, 0.15)",
+// };
 
 function ContactUs() {
   const [form, setForm] = useState({
