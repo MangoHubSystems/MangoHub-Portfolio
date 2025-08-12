@@ -46,81 +46,111 @@ function Home() {
               flexDirection: "column",
               alignItems: "center", // Center horizontally
               justifyContent: "center", // Center vertically
-              height: "100%", // Ensure full parent height for centering
+              height: "100%",
               zIndex: 3,
+              marginTop: "60px", // Push content down
             }}
           >
             <h1
               className="heading"
               style={{
-                color: "#222", // Black for greeting
+                color: "#222", // Black greeting
                 fontWeight: 700,
-                fontSize: "2.6rem",
-                marginBottom: "0.2rem",
+                fontSize: "5.5rem", // Increased font size
+                marginBottom: "10rem",
                 letterSpacing: "1px",
                 lineHeight: 1.2,
                 textAlign: "center",
               }}
             >
-              Hello! <br />
-              We Are{" "}
+              Hello!
+              We Are{" "}<br/>
               <span
                 style={{
-                  color: "#006400", // Dark green for MangoHub
+                  color: "#006400", // Dark green brand
                   fontWeight: 900,
+                  fontSize: "5.0rem", // Larger MangoHub name
                 }}
               >
                 MangoHub Systems
-              </span>{" "}
-              <span className="wave" role="img" aria-labelledby="wave">🥭</span>
+                              <span
+                className="wave"
+                role="img"
+                aria-labelledby="wave"
+                style={{
+                  fontSize: "4rem", // You can adjust to 3rem, 5rem, etc. as desired
+                  marginLeft: "0.3rem",
+                  verticalAlign: "middle",
+                  lineHeight: 1,
+                }}
+              >
+                🥭
+              </span>
+              </span>
             </h1>
+
             <h3
               style={{
-                color: "#555", // Subtle modern gray
+                color: "#555", // Tagline gray
                 fontWeight: 500,
-                fontSize: "1.08rem",
+                fontSize: "1.35rem", // Bigger tagline
                 fontStyle: "italic",
-                marginBottom: "1.7rem",
-                marginTop: "0.7rem",
+                marginBottom: "2rem",
+                marginTop: "-6rem",
                 letterSpacing: "0.2px",
                 textAlign: "center",
               }}
             >
-              Delivering innovative web solutions that cultivate growth and drive your digital success.
+              "Delivering innovative web solutions that cultivate growth and drive your digital success"
             </h3>
-            <div style={{ padding: "0 0 1rem 0", width: "100%", textAlign: "center" }}>
-              <Type />
-            </div>
-            <p
+
+            <div
               style={{
-                color: "#222",
-                fontSize: "1.15rem",
-                lineHeight: 1.7,
-                marginBottom: "1.5rem",
-                background: "#f5f6fa", // Soft light card
-                borderRadius: "14px",
-                boxShadow: "0 2px 12px rgba(0,100,0,0.08)",
-                padding: "1.2rem",
+                padding: "0 0 1rem 0",
                 width: "100%",
-                maxWidth: "600px",
                 textAlign: "center",
               }}
             >
-              At MangoHub Systems, we specialize in delivering <span style={{ color: "#006400", fontWeight: 600 }}>cutting-edge web solutions</span> tailored to your business needs.<br />
-              Our team creates innovative, user-friendly, high-performance applications for your success.<br />
-              We build scalable, secure, and modern web solutions—custom web apps, cloud integration, UI/UX design, and quality assurance.
+              <Type />
+            </div>
+
+            <p
+              style={{
+                color: "#222",
+                fontSize: "1.25rem", // Larger paragraph font
+                lineHeight: 1.8,
+                marginBottom: "1.8rem",
+                background: "#f5f6fa",
+                borderRadius: "14px",
+                boxShadow: "0 2px 12px rgba(0,100,0,0.08)",
+                padding: "1.4rem",
+                width: "100%",
+                maxWidth: "650px",
+                textAlign: "center",
+              }}
+            >
+              At MangoHub Systems, we specialize in delivering{" "}
+              <span style={{ color: "#006400", fontWeight: 600 }}>
+                cutting-edge web solutions
+              </span>{" "}
+              tailored to your business needs.<br />
+              Our team creates innovative, user-friendly, high-performance
+              applications for your success.<br />
+              We build scalable, secure, and modern web solutions—custom web
+              apps, cloud integration, UI/UX design, and quality assurance.
             </p>
+
             <Button
               href="#about"
               variant="primary"
               style={{
-                backgroundColor: "#006400", // Dark green CTA
+                backgroundColor: "#006400",
                 color: "#fff",
                 border: "none",
                 fontWeight: 700,
-                padding: "0.7rem 2.2rem",
+                padding: "0.8rem 2.5rem", // Slightly bigger button
                 borderRadius: "30px",
-                fontSize: "1.1rem",
+                fontSize: "1.2rem", // Larger button text
                 boxShadow: "0 2px 10px 0 rgba(0,100,0,0.10)",
                 transition: "box-shadow 0.2s, transform 0.2s",
                 letterSpacing: "0.5px",

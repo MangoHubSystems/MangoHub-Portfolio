@@ -182,7 +182,7 @@ body {
 }
 .Typewriter__wrapper {
   font-size: 2.2em !important;
-  color: var(--accent-yellow) !important;
+  color: var(yellow) !important;
   font-weight: 600 !important;
 }
 .Typewriter__cursor {
