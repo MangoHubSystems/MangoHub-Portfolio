@@ -31,7 +31,7 @@ const baseStyle = {
   padding: "15px",
   margin: "10px",
   borderRadius: "12px",
-  backgroundColor: "rgba(38, 92, 0, 0.04)",
+  backgroundColor: "#bebcbc",
   boxShadow: "black",
   transition: "transform 0.3s, box-shadow 0.3s, color 0.3s, background 0.3s",
   cursor: "default",

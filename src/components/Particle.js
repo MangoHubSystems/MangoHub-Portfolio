@@ -17,7 +17,7 @@ function Particle() {
             },
           },
           color: {
-            value: ["#FFC324", "#3CB371", "#ffffff"],
+            value: ["#000000", "#006400", "#B8860B"], // black, dark green, dark yellow
           },
           shape: {
             type: "circle",
@@ -45,7 +45,7 @@ function Particle() {
           line_linked: {
             enable: true,
             distance: 130,
-            color: "#ffffff",
+            color: "#000000", // black lines for subtlety
             opacity: 0.05,
             width: 1,
           },

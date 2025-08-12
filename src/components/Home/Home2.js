@@ -9,26 +9,26 @@ import {
 } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 
-// Inline style objects
+// Inline style objects with updated white background for main section
 const sectionStyle = {
-  background: "linear-gradient(135deg, #181818 60%, #232323 100%)",
+  background: "#fff", // Changed to pure white
   padding: "80px 0 60px 0",
   minHeight: "100vh",
   position: "relative",
 };
 
 const aboutCardStyle = {
-  background: "rgba(34, 34, 34, 0.7)",
+  background: "rgba(255, 255, 255, 0.8)", // light translucent white for glass effect
   borderRadius: "18px",
-  boxShadow: "0 4px 32px rgba(60, 179, 113, 0.10)",
+  boxShadow: "0 4px 32px rgba(34, 139, 34, 0.10)", // subtle green shadow
   backdropFilter: "blur(8px)",
   padding: "3rem 2.5rem",
-  color: "#EAEAEA",
+  color: "#222", // dark text for readability on light background
   marginBottom: "2rem",
 };
 
 const headingStyle = {
-  color: "#3CB371",
+  color: "#006400", // dark green accent matching MangoHub branding
   fontWeight: 700,
   letterSpacing: "1px",
   marginBottom: "1.2rem",
@@ -36,12 +36,12 @@ const headingStyle = {
 };
 
 const greenStyle = {
-  color: "#3CB371",
+  color: "#006400",
   fontWeight: 700,
 };
 
 const bodyTextStyle = {
-  color: "#EAEAEA",
+  color: "#333",
   fontSize: "1.15rem",
   lineHeight: 1.7,
 };
@@ -52,27 +52,27 @@ const avatarColStyle = {
   alignItems: "center",
   paddingTop: "2rem",
   paddingBottom: "2rem",
-  position: "relative", // <-- added
-  zIndex: 0, // <-- ensure it's below the social icons
+  position: "relative",
+  zIndex: 0,
 };
 
 const avatarImgStyle = {
   maxWidth: "260px",
   borderRadius: "18px",
-  boxShadow: "0 8px 32px 0 rgba(60, 179, 113, 0.10)",
-  background: "#232323",
+  boxShadow: "0 8px 32px 0 rgba(0, 100, 0, 0.10)", // dark green shadow
+  background: "#f0f0f0",
 };
 
 const socialSectionStyle = {
   textAlign: "center",
-  color: "#EAEAEA",
+  color: "#222",
   marginTop: "2rem",
-  position: "relative", // <-- added
-  zIndex: 10, // <-- added to raise above other components
+  position: "relative",
+  zIndex: 10,
 };
 
 const socialHeadingStyle = {
-  color: "#FFC324",
+  color: "#006400",
   fontSize: "2rem",
   marginBottom: "0.7rem",
   fontWeight: 700,
@@ -85,7 +85,7 @@ const socialLinksStyle = {
   padding: 0,
   marginTop: "1.2rem",
   listStyle: "none",
-  color: "white",
+  color: "#222",
 };
 
 const iconStyle = {
@@ -94,41 +94,32 @@ const iconStyle = {
   justifyContent: "center",
   width: "44px",
   height: "44px",
-  background: "rgba(255, 255, 255, 0.07)",
+  background: "rgba(0, 100, 0, 0.07)",
   borderRadius: "50%",
-  color: "white",
+  color: "#006400",
   fontSize: "1.7em",
-  border: "1.5px solid rgba(60, 179, 113, 0.25)",
-  boxShadow: "0 2px 8px 0 rgba(60, 179, 113, 0.09)",
+  border: "1.5px solid rgba(0, 100, 0, 0.25)",
+  boxShadow: "0 2px 8px 0 rgba(0, 100, 0, 0.09)",
   transition: "background 0.2s, color 0.2s, box-shadow 0.2s",
   textDecoration: "none",
   cursor: "pointer",
   pointerEvents: "auto",
-  zIndex: 1, // <-- new
-  position: "relative", // <-- ensures zIndex works
+  zIndex: 1,
+  position: "relative",
 };
 
 function SocialIcon({ href, children }) {
   const [hovered, setHovered] = React.useState(false);
 
   const baseStyle = {
-    display: "inline-flex",
-    alignItems: "center",
-    justifyContent: "center",
-    width: "44px",
-    height: "44px",
-    background: hovered ? "#3CB371" : "rgba(255, 255, 255, 0.07)",
-    borderRadius: "50%",
-    color: hovered ? "#181818" : "white",
-    fontSize: "1.7em",
-    border: "1.5px solid rgba(60, 179, 113, 0.25)",
-    boxShadow: "0 2px 8px 0 rgba(60, 179, 113, 0.09)",
+    ...iconStyle,
+    background: hovered ? "#006400" : "rgba(0, 100, 0, 0.07)",
+    color: hovered ? "#fff" : "#006400",
+    borderColor: hovered ? "#004d00" : "rgba(0, 100, 0, 0.25)",
+    boxShadow: hovered
+      ? "0 4px 12px 0 rgba(0, 100, 0, 0.5)"
+      : "0 2px 8px 0 rgba(0, 100, 0, 0.09)",
     transition: "all 0.25s ease-in-out",
-    textDecoration: "none",
-    cursor: "pointer",
-    pointerEvents: "auto",
-    zIndex: 1,
-    position: "relative",
   };
 
   return (
@@ -147,12 +138,7 @@ function SocialIcon({ href, children }) {
 
 function Home2() {
   return (
-    <Container
-      fluid
-      className="home-about-section"
-      id="about"
-      style={sectionStyle}
-    >
+    <Container fluid className="home-about-section" id="about" style={sectionStyle}>
       <Container>
         <Row>
           <Col md={8} className="home-about-description">
@@ -247,15 +233,14 @@ function Home2() {
               <Button
                 href="mailto:mangohubsystems@gmail.com"
                 style={{
-                  background:
-                    "linear-gradient(90deg, #FFC324 60%, #3CB371 100%)",
-                  color: "#181818",
+                  backgroundColor: "#006400", // solid dark green button for clarity
+                  color: "#fff",
                   border: "none",
                   fontWeight: 700,
                   padding: "0.7rem 2.2rem",
                   borderRadius: "30px",
                   fontSize: "1.1rem",
-                  boxShadow: "0 2px 12px 0 #FFC32455",
+                  boxShadow: "0 2px 12px 0 rgba(0, 100, 0, 0.35)",
                   transition: "box-shadow 0.2s, transform 0.2s",
                   zIndex: 1,
                   position: "relative",

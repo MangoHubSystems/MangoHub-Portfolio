@@ -59,7 +59,7 @@ function About() {
       fluid
       className="about-section"
       style={{
-        background: "linear-gradient(135deg, #181818 60%, #232323 100%)",
+        background: "#fff", // Changed to white
         minHeight: "100vh",
         paddingBottom: "40px",
       }}
@@ -75,14 +75,14 @@ function About() {
               justifyContent: "center",
               paddingTop: "20px",
               paddingBottom: "50px",
-              color: "#EAEAEA",
+              color: "#333", // dark text for readability on white
             }}
           >
             <h1
               style={{
                 fontSize: "2.8rem",
                 fontWeight: 800,
-                color: "#EAEAEA",
+                color: "#222", // Darker text for headers on white
                 textAlign: "center",
                 marginTop: "3rem",
                 marginBottom: "2.2rem",
@@ -98,6 +98,7 @@ function About() {
                 fontSize: "1.55rem",
                 lineHeight: 1.7,
                 marginBottom: "1.8rem",
+                color: "#555", // medium dark gray for body text
               }}
             >
               MangoHub Systems delivers comprehensive digital solutions to help
@@ -136,7 +137,7 @@ function About() {
                 maxWidth: "320px",
                 borderRadius: "18px",
                 boxShadow: "0 8px 32px 0 rgba(60, 179, 113, 0.10)",
-                background: "#232323",
+                background: "#f0f0f0", // lighter background to contrast image
               }}
             />
           </Col>
@@ -145,7 +146,7 @@ function About() {
         <h1
           className="project-heading"
           style={{
-            color: "#EAEAEA",
+            color: "#222",
             fontWeight: 700,
             marginTop: "2.5rem",
             textAlign: "center",
@@ -196,7 +197,7 @@ function About() {
                 </h3>
                 <p
                   style={{
-                    color: "#EAEAEA",
+                    color: "#555",
                     fontSize: "1.02rem",
                     lineHeight: 1.5,
                   }}
@@ -211,7 +212,7 @@ function About() {
         <h1
           className="project-heading"
           style={{
-            color: "#EAEAEA",
+            color: "#222",
             fontWeight: 700,
             marginTop: "2.5rem",
           }}
@@ -223,7 +224,7 @@ function About() {
         <h1
           className="project-heading"
           style={{
-            color: "#EAEAEA",
+            color: "#222",
             fontWeight: 700,
             marginTop: "2.5rem",
           }}
