@@ -66,7 +66,7 @@ function About() {
     >
       <Particle />
       <Container>
-        <Row style={{ justifyContent: "center", padding: "10px" }}>
+        {/* <Row style={{ justifyContent: "center", padding: "10px" }}>
           <Col
             md={7}
             style={{
@@ -141,7 +141,7 @@ function About() {
               }}
             />
           </Col>
-        </Row>
+        </Row> */}
 
         <h1
           className="project-heading"
@@ -152,7 +152,7 @@ function About() {
             textAlign: "center",
           }}
         >
-          Our <span style={{ color: "#3CB371" }}>Services</span>
+          <span style={{ color: "#3CB371" }}></span>MangoHub System <span style={{ color: "#3CB371" }}>Services</span>
         </h1>
 
         <Row style={{ marginTop: "30px", marginBottom: "50px" }}>

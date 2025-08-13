@@ -17,29 +17,28 @@ import {
 } from "react-icons/fa";
 import { FiSend } from "react-icons/fi";
 import Particle from "../Particle";
-import contactImage from "../../Assets/mango.png"; // Replace with your image path
+import contactImage from "../../Assets/mango.png";
 
 const sectionStyle = {
-  background: "linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%)",
+  background: "#fff", // White background
   minHeight: "100vh",
   padding: "80px 0",
-  color: "#f8f9fa",
+  color: "#222",
   overflow: "hidden",
   position: "relative",
 };
 
 const cardStyle = {
-  background: "rgba(30, 30, 30, 0.9)",
+  background: "#f9f9f9", // Light gray card on white
   borderRadius: "16px",
-  boxShadow: "0 12px 30px rgba(60, 179, 113, 0.2)",
-  backdropFilter: "blur(12px)",
+  boxShadow: "0 8px 20px rgba(0, 0, 0, 0.08)",
   padding: "3rem 2.5rem",
   height: "100%",
-  border: "1px solid rgba(255, 195, 36, 0.1)",
+  border: "1px solid rgba(0,0,0,0.05)",
 };
 
 const headingStyle = {
-  color: "#FFC324",
+  color: "#006400", // Dark green
   fontWeight: 700,
   fontSize: "2.8rem",
   letterSpacing: "0.5px",
@@ -61,7 +60,7 @@ const headingUnderline = {
 };
 
 const subheadingStyle = {
-  color: "#adb5bd",
+  color: "#555",
   fontWeight: 400,
   fontSize: "1.1rem",
   marginBottom: "2.5rem",
@@ -70,12 +69,12 @@ const subheadingStyle = {
 };
 
 const contactInfoBox = {
-  backgroundColor: "rgba(42, 42, 42, 0.7)",
+  backgroundColor: "#fdfdfd",
   borderRadius: "16px",
   padding: "25px",
   marginBottom: "30px",
-  boxShadow: "0 4px 20px rgba(0,0,0,0.15)",
-  border: "1px solid rgba(255, 255, 255, 0.05)",
+  boxShadow: "0 4px 20px rgba(0,0,0,0.05)",
+  border: "1px solid rgba(0,0,0,0.05)",
 };
 
 const infoItem = {
@@ -83,12 +82,12 @@ const infoItem = {
   alignItems: "flex-start",
   gap: "18px",
   marginBottom: "1.5rem",
-  color: "#e9ecef",
+  color: "#333",
 };
 
 const iconStyle = {
   fontSize: "1.4rem",
-  color: "#FFC324",
+  color: "#006400", // Dark green icons
   marginTop: "3px",
 };
 
@@ -99,24 +98,18 @@ const infoText = {
 
 const formLabelStyle = {
   fontWeight: 500,
-  color: "#dee2e6",
+  color: "#222",
   marginBottom: "0.5rem",
 };
 
 const formControlStyle = {
   borderRadius: "10px",
   padding: "14px",
-  backgroundColor: "rgba(255, 255, 255, 0.05)",
-  border: "1px solid rgba(255, 255, 255, 0.1)",
-  color: "#f8f9fa",
+  backgroundColor: "#fff",
+  border: "1px solid rgba(0,0,0,0.1)",
+  color: "#222",
   transition: "all 0.3s ease",
 };
-
-// const formControlFocusStyle = {
-//   backgroundColor: "rgba(255, 255, 255, 0.08)",
-//   borderColor: "rgba(60, 179, 113, 0.5)",
-//   boxShadow: "0 0 0 0.2rem rgba(60, 179, 113, 0.15)",
-// };
 
 function ContactUs() {
   const [form, setForm] = useState({
@@ -152,7 +145,7 @@ function ContactUs() {
 
   return (
     <Container fluid style={sectionStyle}>
-      <Particle />
+      {/* <Particle /> */}
       <Container>
         <Row className="align-items-center">
           {/* Left Side: Image and Contact Info */}
@@ -168,15 +161,8 @@ function ContactUs() {
                 }}
               />
             </div>
-
             <div style={contactInfoBox}>
-              <h4
-                style={{
-                  color: "#FFC324",
-                  marginBottom: "1.5rem",
-                  fontWeight: 600,
-                }}
-              >
+              <h4 style={{ color: "#006400", marginBottom: "1.5rem", fontWeight: 600 }}>
                 <FaHeadset className="me-2" />
                 Our Contact Details
               </h4>
@@ -184,13 +170,7 @@ function ContactUs() {
               <div style={infoItem}>
                 <FaMapMarkerAlt style={iconStyle} />
                 <div>
-                  <h6
-                    style={{
-                      color: "#FFC324",
-                      fontWeight: 500,
-                      marginBottom: "0.25rem",
-                    }}
-                  >
+                  <h6 style={{ color: "#006400", fontWeight: 500, marginBottom: "0.25rem" }}>
                     Our Location
                   </h6>
                   <p style={infoText}>No. 12, Web Avenue, Colombo, Sri Lanka</p>
@@ -200,13 +180,7 @@ function ContactUs() {
               <div style={infoItem}>
                 <FaPhoneAlt style={iconStyle} />
                 <div>
-                  <h6
-                    style={{
-                      color: "#FFC324",
-                      fontWeight: 500,
-                      marginBottom: "0.25rem",
-                    }}
-                  >
+                  <h6 style={{ color: "#006400", fontWeight: 500, marginBottom: "0.25rem" }}>
                     Phone Number
                   </h6>
                   <p style={infoText}>+94 77 123 4567</p>
@@ -216,13 +190,7 @@ function ContactUs() {
               <div style={infoItem}>
                 <FaEnvelope style={iconStyle} />
                 <div>
-                  <h6
-                    style={{
-                      color: "#FFC324",
-                      fontWeight: 500,
-                      marginBottom: "0.25rem",
-                    }}
-                  >
+                  <h6 style={{ color: "#006400", fontWeight: 500, marginBottom: "0.25rem" }}>
                     Email Address
                   </h6>
                   <p style={infoText}>contact@mangohubsystems.com</p>
@@ -240,9 +208,8 @@ function ContactUs() {
                   <span style={headingUnderline}></span>
                 </h1>
                 <p style={subheadingStyle}>
-                  Have a project in mind or want to discuss potential
-                  collaboration? Fill out the form below and our team will get
-                  back to you within 24 hours.
+                  Have a project in mind or want to discuss potential collaboration?  
+                  Fill out the form below and our team will get back to you within 24 hours.
                 </p>
               </div>
 
@@ -251,16 +218,15 @@ function ContactUs() {
                   variant="success"
                   style={{
                     borderRadius: "10px",
-                    background: "rgba(60, 179, 113, 0.15)",
-                    border: "1px solid rgba(60, 179, 113, 0.3)",
-                    color: "#f8f9fa",
+                    background: "rgba(0,100,0,0.08)",
+                    border: "1px solid rgba(0,100,0,0.3)",
+                    color: "#006400",
                   }}
                   className="d-flex align-items-center"
                 >
                   <FiSend className="me-2" size={20} />
                   <span>
-                    <strong>Message sent successfully!</strong> We'll get back
-                    to you within 24 hours.
+                    <strong>Message sent successfully!</strong> We'll get back to you within 24 hours.
                   </span>
                 </Alert>
               )}
@@ -275,7 +241,6 @@ function ContactUs() {
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
                     required
                     style={formControlStyle}
-                    className="focus-style"
                   />
                 </Form.Group>
 
@@ -285,12 +250,9 @@ function ContactUs() {
                     type="email"
                     placeholder="Enter your email address"
                     value={form.email}
-                    onChange={(e) =>
-                      setForm({ ...form, email: e.target.value })
-                    }
+                    onChange={(e) => setForm({ ...form, email: e.target.value })}
                     required
                     style={formControlStyle}
-                    className="focus-style"
                   />
                 </Form.Group>
 
@@ -301,12 +263,9 @@ function ContactUs() {
                     rows={5}
                     placeholder="Tell us about your project or inquiry..."
                     value={form.message}
-                    onChange={(e) =>
-                      setForm({ ...form, message: e.target.value })
-                    }
+                    onChange={(e) => setForm({ ...form, message: e.target.value })}
                     required
                     style={formControlStyle}
-                    className="focus-style"
                   />
                 </Form.Group>
 
@@ -314,9 +273,8 @@ function ContactUs() {
                   type="submit"
                   className="d-flex align-items-center justify-content-center gap-2"
                   style={{
-                    background:
-                      "linear-gradient(90deg, #FFC324 0%, #3CB371 100%)",
-                    color: "#0f0f0f",
+                    background: "linear-gradient(90deg, #FFC324 0%, #006400 100%)",
+                    color: "#fff",
                     border: "none",
                     fontWeight: 600,
                     padding: "0.85rem 2rem",
@@ -326,12 +284,6 @@ function ContactUs() {
                     transition: "all 0.3s ease",
                     marginTop: "0.5rem",
                   }}
-                  onMouseOver={(e) =>
-                    (e.target.style.transform = "translateY(-2px)")
-                  }
-                  onMouseOut={(e) =>
-                    (e.target.style.transform = "translateY(0)")
-                  }
                 >
                   <FaPaperPlane />
                   Send Message

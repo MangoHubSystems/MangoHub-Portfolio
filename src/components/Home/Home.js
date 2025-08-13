@@ -18,12 +18,12 @@ function Home() {
           alignItems: "center",
           background: "#fff", // Clean white background
           padding: 0,
-          marginTop: "-60px",
+          marginTop: "-150px",
           position: "relative",
           overflow: "hidden",
         }}
       >
-        <Particle />
+        {/* <Particle /> */}
 
         <Row
           style={{
@@ -48,7 +48,7 @@ function Home() {
               justifyContent: "center", // Center vertically
               height: "100%",
               zIndex: 3,
-              marginTop: "60px", // Push content down
+              marginTop: "20px", // Push content down
             }}
           >
             <h1
@@ -57,7 +57,7 @@ function Home() {
                 color: "#222", // Black greeting
                 fontWeight: 700,
                 fontSize: "5.5rem", // Increased font size
-                marginBottom: "10rem",
+                marginBottom: "20rem",
                 letterSpacing: "1px",
                 lineHeight: 1.2,
                 textAlign: "center",
@@ -95,8 +95,8 @@ function Home() {
                 fontWeight: 500,
                 fontSize: "1.35rem", // Bigger tagline
                 fontStyle: "italic",
-                marginBottom: "2rem",
-                marginTop: "-6rem",
+                marginBottom: "5rem",
+                marginTop: "-12rem",
                 letterSpacing: "0.2px",
                 textAlign: "center",
               }}
@@ -113,19 +113,19 @@ function Home() {
             >
               <Type />
             </div>
-
+{/* 
             <p
               style={{
                 color: "#222",
                 fontSize: "1.25rem", // Larger paragraph font
-                lineHeight: 1.8,
+                lineHeight: 2,
                 marginBottom: "1.8rem",
                 background: "#f5f6fa",
                 borderRadius: "14px",
                 boxShadow: "0 2px 12px rgba(0,100,0,0.08)",
                 padding: "1.4rem",
                 width: "100%",
-                maxWidth: "650px",
+                maxWidth: "800px",
                 textAlign: "center",
               }}
             >
@@ -138,7 +138,7 @@ function Home() {
               applications for your success.<br />
               We build scalable, secure, and modern web solutions—custom web
               apps, cloud integration, UI/UX design, and quality assurance.
-            </p>
+            </p> */}
 
             <Button
               href="#about"

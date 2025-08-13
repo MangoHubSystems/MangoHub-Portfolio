@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
-import myImg from "../../Assets/logo new.png";
 import Tilt from "react-parallax-tilt";
+import myImg from "../../Assets/logo new.png";
 import {
   AiFillGithub,
   AiOutlineTwitter,
@@ -9,30 +9,34 @@ import {
 } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 
-// Inline style objects with updated white background for main section
+// Inline keyframes for fade-in/up heading animation
+const headingAnimStyle = {
+  animation: "fadeInUp 5s cubic-bezier(.42,.96,.58,1.01) 0s both",
+};
+
 const sectionStyle = {
-  background: "#fff", // Changed to pure white
+  background: "#fff",
   padding: "80px 0 60px 0",
   minHeight: "100vh",
   position: "relative",
 };
 
 const aboutCardStyle = {
-  background: "rgba(255, 255, 255, 0.8)", // light translucent white for glass effect
+  background: "rgba(233, 234, 187, 0.74)", // glass effect, pale yellow-white
   borderRadius: "18px",
-  boxShadow: "0 4px 32px rgba(34, 139, 34, 0.10)", // subtle green shadow
+  boxShadow: "0 4px 32px rgba(34, 139, 34, 0.10)",
   backdropFilter: "blur(8px)",
   padding: "3rem 2.5rem",
-  color: "#222", // dark text for readability on light background
+  color: "#222",
   marginBottom: "2rem",
 };
 
 const headingStyle = {
-  color: "#006400", // dark green accent matching MangoHub branding
-  fontWeight: 700,
+  color: "#006400", // MangoHub dark green
+  fontWeight: 1000,
   letterSpacing: "1px",
   marginBottom: "1.2rem",
-  fontSize: "2.6em",
+  fontSize: "3.2em", // Larger heading
 };
 
 const greenStyle = {
@@ -42,8 +46,8 @@ const greenStyle = {
 
 const bodyTextStyle = {
   color: "#333",
-  fontSize: "1.15rem",
-  lineHeight: 1.7,
+  fontSize: "1.18rem",
+  lineHeight: 1.78,
 };
 
 const avatarColStyle = {
@@ -57,10 +61,12 @@ const avatarColStyle = {
 };
 
 const avatarImgStyle = {
-  maxWidth: "260px",
-  borderRadius: "18px",
-  boxShadow: "0 8px 32px 0 rgba(0, 100, 0, 0.10)", // dark green shadow
+  maxWidth: "320px",       // Enlarged logo size
+  borderRadius: "24px",
+  boxShadow: "0 12px 48px 0 rgba(0, 100, 0, 0.16)",
   background: "#f0f0f0",
+  padding: "0.3rem",
+  marginTop: "1rem",
 };
 
 const socialSectionStyle = {
@@ -136,14 +142,43 @@ function SocialIcon({ href, children }) {
   );
 }
 
+// Animation keyframes for heading
+const globalAnimStyles = `
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+`;
+
 function Home2() {
+  const headingRef = useRef(null);
+
+  useEffect(() => {
+    // Inject animation styles only once
+    if (!document.getElementById("mh-anim-keyframes")) {
+      const styleTag = document.createElement("style");
+      styleTag.id = "mh-anim-keyframes";
+      styleTag.textContent = globalAnimStyles;
+      document.head.appendChild(styleTag);
+    }
+  }, []);
+
   return (
     <Container fluid className="home-about-section" id="about" style={sectionStyle}>
       <Container>
         <Row>
           <Col md={8} className="home-about-description">
             <div style={aboutCardStyle}>
-              <h1 style={headingStyle}>
+              <h1
+                style={{ ...headingStyle, ...headingAnimStyle }}
+                ref={headingRef}
+              >
                 ABOUT <span style={greenStyle}>MANGOHUB SYSTEMS</span>
               </h1>
               <p style={bodyTextStyle}>
@@ -154,7 +189,6 @@ function Home2() {
                 <br />
                 Our team specializes in{" "}
                 <b style={greenStyle}>custom web development</b>,{" "}
-                <b style={greenStyle}>cloud-based applications</b>,{" "}
                 <b style={greenStyle}>enterprise automation</b>, and end-to-end{" "}
                 <b style={greenStyle}>quality assurance</b>. We deliver robust,
                 scalable, and secure platforms tailored to the unique needs of
@@ -188,10 +222,10 @@ function Home2() {
             </div>
           </Col>
           <Col md={4} className="myAvtar" style={avatarColStyle}>
-            <Tilt style={{ pointerEvents: "none" }}>
+            <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} glareEnable glareMaxOpacity={0.15}>
               <img
                 src={myImg}
-                style={{ ...avatarImgStyle, pointerEvents: "auto" }}
+                style={avatarImgStyle}
                 className="img-fluid"
                 alt="MangoHub mascot"
               />
@@ -202,10 +236,17 @@ function Home2() {
           <Col md={12} className="home-about-social" style={socialSectionStyle}>
             <h1 style={socialHeadingStyle}>CONNECT WITH US</h1>
             <p>
-              mangohubsystems@gmail.com <br />
-              Follow <span style={greenStyle}>MangoHub Systems</span> on social
-              media
-            </p>
+                  <span style={{ color: "#111", fontWeight: 500 }}>
+                    mangohubsystems@gmail.com <br /> Follow {" "}
+                  </span>
+                  <span style={{ color: "#006400", fontWeight: 700 }}>
+                    MangoHub Systems
+                  </span>
+                  <span style={{ color: "#111", fontWeight: 500 }}>
+                    {" "}on social media
+                  </span>
+                </p>
+
             <ul style={socialLinksStyle}>
               <li>
                 <SocialIcon href="https://github.com/MangoHubSystems">
@@ -233,17 +274,18 @@ function Home2() {
               <Button
                 href="mailto:mangohubsystems@gmail.com"
                 style={{
-                  backgroundColor: "#006400", // solid dark green button for clarity
+                  backgroundColor: "#006400",
                   color: "#fff",
                   border: "none",
                   fontWeight: 700,
-                  padding: "0.7rem 2.2rem",
-                  borderRadius: "30px",
-                  fontSize: "1.1rem",
+                  padding: "0.8rem 2.5rem", // Larger button
+                  borderRadius: "34px",
+                  fontSize: "1.2rem",
                   boxShadow: "0 2px 12px 0 rgba(0, 100, 0, 0.35)",
                   transition: "box-shadow 0.2s, transform 0.2s",
                   zIndex: 1,
                   position: "relative",
+                  letterSpacing: "0.5px",
                 }}
               >
                 Email Us Now

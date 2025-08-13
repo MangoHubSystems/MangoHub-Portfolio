@@ -182,9 +182,10 @@ body {
 }
 .Typewriter__wrapper {
   font-size: 2.2em !important;
-  color: var(yellow) !important;
+  color: #006400 !important; /* Dark green */
   font-weight: 600 !important;
 }
+
 .Typewriter__cursor {
   font-size: 2.4em !important;
   color: var(--accent-green) !important;
@@ -382,7 +383,7 @@ body {
   color: var(--main-black) !important;
   background: linear-gradient(
     90deg,
-    var(--accent-yellow) 60%,
+    
     var(--accent-green) 100%
   ) !important;
   border: none !important;

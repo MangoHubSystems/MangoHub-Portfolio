@@ -17,39 +17,43 @@ function WhyChooseUs() {
           paddingBottom: "20px",
           textAlign: "center",
           width: "100%",
-          color: "#EAEAEA",
+          color: "#111", // Dark heading text
+          fontWeight: 800,
         }}
       >
-        Why <span style={{ color: "#3CB371" }}>Choose Us?</span>
+        Why <span style={{ color: "#006400" }}>Choose Us?</span>
       </h1>
+
       <Col md={4} style={{ textAlign: "center", marginBottom: "1.5rem" }}>
-        <FaAward size={48} color="#EAEAEA" style={{ marginBottom: "0.6rem" }} />
-        <h4 style={{ color: "#EAEAEA", fontWeight: 600 }}>Proven Expertise</h4>
-        <p style={{ color: "#B0B0B0" }}>
+        <FaAward size={48} color="#006400" style={{ marginBottom: "0.6rem" }} />
+        <h4 style={{ color: "#111", fontWeight: 700 }}>Proven Expertise</h4>
+        <p style={{ color: "#333" }}>
           Years of experience delivering secure, scalable solutions for
           businesses of all sizes.
         </p>
       </Col>
+
       <Col md={4} style={{ textAlign: "center", marginBottom: "1.5rem" }}>
-        <FaUsers size={48} color="#EAEAEA" style={{ marginBottom: "0.6rem" }} />
-        <h4 style={{ color: "#EAEAEA", fontWeight: 600 }}>
+        <FaUsers size={48} color="#006400" style={{ marginBottom: "0.6rem" }} />
+        <h4 style={{ color: "#111", fontWeight: 700 }}>
           Client-Centric Approach
         </h4>
-        <p style={{ color: "#B0B0B0" }}>
+        <p style={{ color: "#333" }}>
           We listen, collaborate, and tailor every project to your unique goals
           and challenges.
         </p>
       </Col>
+
       <Col md={4} style={{ textAlign: "center", marginBottom: "1.5rem" }}>
         <FaHandshake
           size={48}
-          color="#EAEAEA"
+          color="#006400"
           style={{ marginBottom: "0.6rem" }}
         />
-        <h4 style={{ color: "#EAEAEA", fontWeight: 600 }}>
+        <h4 style={{ color: "#111", fontWeight: 700 }}>
           Reliable Partnership
         </h4>
-        <p style={{ color: "#B0B0B0" }}>
+        <p style={{ color: "#333" }}>
           Count on us for transparency, ongoing support, and a commitment to
           your success.
         </p>

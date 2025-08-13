@@ -17,7 +17,7 @@ import presentPath from "../../Assets/Projects/PresentPath.png";
 function Projects() {
   return (
     <Container fluid className="project-section">
-      <Particle />
+      {/* <Particle /> */}
       <Container>
         <h1
           style={{
@@ -25,10 +25,10 @@ function Projects() {
             fontWeight: "700",
             textAlign: "center",
             marginBottom: "5px",
-            color: "#ffffff", // dark gray for readability
+            color: "white", // dark gray for readability
           }}
         >
-          My Recent{" "}
+          Our Recent{" "}
           <strong
             style={{
               color: "#00c897", // your green highlight color
@@ -40,7 +40,7 @@ function Projects() {
         </h1>
 
         <p style={{ color: "white" }}>
-          Here are a few projects I've worked on recently.
+          Here are a few projects we have worked on recently.
         </p>
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
           {/* <Col md={4} className="project-card">

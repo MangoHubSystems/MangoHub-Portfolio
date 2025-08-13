@@ -32,7 +32,7 @@ function Footer() {
         <Row className="align-items-center text-center text-md-left">
           <Col md={4} className="mb-3 mb-md-0">
             <h5 style={{ marginBottom: "0.5rem", color: "#FFA500" }}>
-              Mango Hub Systems
+              MangoHub Systems
             </h5>
             <p style={{ fontSize: "0.9rem", marginBottom: 0 }}>
               Empowering Ideas with Technology
