@@ -197,8 +197,9 @@ function ContactUs() {
                     Contact Numbers
                   </h6>
                   <p style={infoText}>+94 71 762 1250</p>
-                  <p style={infoText}>+94 70 418 2117</p>
                   <p style={infoText}>+94 71 492 2722</p>
+                  <p style={infoText}>+94 70 418 2117</p>
+                  
                 </div>
               </div>
 

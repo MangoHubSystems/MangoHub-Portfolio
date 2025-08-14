@@ -87,16 +87,17 @@ function Home() {
                 🥭
               </span>
               </span>
+              <br/>
             </h1>
 
             <h3
               style={{
                 color: "#555", // Tagline gray
                 fontWeight: 500,
-                fontSize: "1.35rem", // Bigger tagline
+                fontSize: "1rem", // Bigger tagline
                 fontStyle: "italic",
-                marginBottom: "5rem",
-                marginTop: "-12rem",
+                marginBottom: "3rem",
+                marginTop: "-18rem",
                 letterSpacing: "0.2px",
                 textAlign: "center",
               }}
@@ -113,18 +114,18 @@ function Home() {
             >
               <Type />
             </div>
-{/* 
+
             <p
               style={{
                 color: "#222",
-                fontSize: "1.25rem", // Larger paragraph font
+                fontSize: "1.18rem", // Larger paragraph font
                 lineHeight: 2,
                 marginBottom: "1.8rem",
                 background: "#f5f6fa",
                 borderRadius: "14px",
                 boxShadow: "0 2px 12px rgba(0,100,0,0.08)",
                 padding: "1.4rem",
-                width: "100%",
+                width: "200%",
                 maxWidth: "800px",
                 textAlign: "center",
               }}
@@ -138,7 +139,7 @@ function Home() {
               applications for your success.<br />
               We build scalable, secure, and modern web solutions—custom web
               apps, cloud integration, UI/UX design, and quality assurance.
-            </p> */}
+            </p>
 
             <Button
               href="#about"
