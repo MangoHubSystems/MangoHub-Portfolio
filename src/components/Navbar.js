@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import Navbar from "react-bootstrap/Navbar";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import logo from "../Assets/mango2.png";
 import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
-import { CgGitFork } from "react-icons/cg";
+import { CgGitFork, CgFileDocument } from "react-icons/cg";
 import { ImBlog } from "react-icons/im";
 import {
   AiFillStar,
@@ -14,8 +13,6 @@ import {
   AiOutlineFundProjectionScreen,
   AiOutlineUser,
 } from "react-icons/ai";
-
-import { CgFileDocument } from "react-icons/cg";
 
 function NavBar() {
   const [expand, updateExpanded] = useState(false);
@@ -54,19 +51,14 @@ function NavBar() {
           <span></span>
         </Navbar.Toggle>
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="ms-auto" defaultActiveKey="#home">
+          <Nav className="ms-auto" defaultActiveKey="#home" style={{ color: "#000" }}>
             <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/"
-                onClick={() => updateExpanded(false)}
-                className="text-reset"
-              >
+              <Nav.Link as={Link} to="/" onClick={() => updateExpanded(false)} className="text-reset">
                 <span
                   style={
                     location.pathname === "/"
-                      ? { color: "#00c897", fontWeight: "bold" }
-                      : { color: "inherit" }
+                      ? { color: "#000", fontWeight: "bold" }
+                      : { color: "#000" }
                   }
                 >
                   <AiOutlineHome style={{ marginBottom: "2px" }} /> Home
@@ -75,17 +67,12 @@ function NavBar() {
             </Nav.Item>
 
             <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/about"
-                onClick={() => updateExpanded(false)}
-                className="text-reset"
-              >
+              <Nav.Link as={Link} to="/about" onClick={() => updateExpanded(false)} className="text-reset">
                 <span
                   style={
                     location.pathname === "/about"
-                      ? { color: "#00c897", fontWeight: "bold" }
-                      : { color: "inherit" }
+                      ? { color: "#000", fontWeight: "bold" }
+                      : { color: "#000" }
                   }
                 >
                   <AiOutlineUser style={{ marginBottom: "2px" }} /> Services
@@ -94,48 +81,26 @@ function NavBar() {
             </Nav.Item>
 
             <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/project"
-                onClick={() => updateExpanded(false)}
-                className="text-reset"
-              >
+              <Nav.Link as={Link} to="/project" onClick={() => updateExpanded(false)} className="text-reset">
                 <span
                   style={
                     location.pathname === "/project"
-                      ? { color: "#00c897", fontWeight: "bold" }
-                      : { color: "inherit" }
+                      ? { color: "#000", fontWeight: "bold" }
+                      : { color: "#000" }
                   }
                 >
-                  <AiOutlineFundProjectionScreen
-                    style={{ marginBottom: "2px" }}
-                  />{" "}
-                  Projects
+                  <AiOutlineFundProjectionScreen style={{ marginBottom: "2px" }} /> Projects
                 </span>
               </Nav.Link>
             </Nav.Item>
 
-            {/* <Nav.Item>
-              <Nav.Link
-                href="https://soumyajitblogs.vercel.app/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <ImBlog style={{ marginBottom: "2px" }} /> Blogs
-              </Nav.Link>
-            </Nav.Item> */}
             <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/resume"
-                onClick={() => updateExpanded(false)}
-                className="text-reset"
-              >
+              <Nav.Link as={Link} to="/resume" onClick={() => updateExpanded(false)} className="text-reset">
                 <span
                   style={
                     location.pathname === "/resume"
-                      ? { color: "#00c897", fontWeight: "bold" }
-                      : { color: "inherit" }
+                      ? { color: "#000", fontWeight: "bold" }
+                      : { color: "#000" }
                   }
                 >
                   <CgFileDocument style={{ marginBottom: "2px" }} /> Contact Us

@@ -73,15 +73,31 @@ body {
   transition: all 0.3s ease-out 0s !important;
   backdrop-filter: blur(15px) !important;
 }
+
 .navbar {
   position: fixed !important;
   width: 100%;
   z-index: 1000;
   padding: 0.3rem 2rem !important;
   font-size: 1.2rem !important;
-  background: rgba(24, 24, 24, 0.92) !important;
+  background: rgb(255, 255, 255) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  
+  /* ✅ New font color */
+  color: #000 !important; 
 }
+
+/* Also make sure navbar links are black */
+.navbar a,
+.navbar .nav-link {
+  color: #000 !important;
+}
+
+.navbar a:hover,
+.navbar .nav-link:hover {
+  color: #006400 !important; /* Optional: Dark green hover */
+}
+
 .navbar-toggler span {
   display: block !important;
   background-color: var(--accent-yellow) !important;
