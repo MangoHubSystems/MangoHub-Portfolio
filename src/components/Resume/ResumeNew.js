@@ -17,7 +17,7 @@ import {
 } from "react-icons/fa";
 import { FiSend } from "react-icons/fi";
 import Particle from "../Particle";
-import contactImage from "../../Assets/mango.png";
+import contactImage from "../../Assets/mango2.png";
 
 const sectionStyle = {
   background: "#fff", // White background

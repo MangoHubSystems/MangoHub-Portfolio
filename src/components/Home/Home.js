@@ -101,7 +101,7 @@ function Home() {
                 textAlign: "center",
               }}
             >
-              "Delivering innovative web solutions that cultivate growth and drive your digital success"
+              "Empowering businesses with fresh, intelligent web solutions that grow with you."
             </h3>
 
             <div

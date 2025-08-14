@@ -23,8 +23,8 @@ body {
   background: var(--section-background-color);
   color: var(--main-white);
   font-family: "Segoe UI", "Roboto", Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+  margin: 10;
+  padding: 20;
   min-height: 100vh;
 }
 
@@ -67,7 +67,7 @@ body {
 
 /* Navbar */
 .sticky {
-  background: rgba(24, 24, 24, 0.92) !important;
+  background: rgba(18, 17, 17, 0.92) !important;
   box-shadow: 0 2px 16px 0 rgba(38, 92, 0, 0.08) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
   transition: all 0.3s ease-out 0s !important;
@@ -97,9 +97,11 @@ body {
   letter-spacing: 1px;
 }
 .logo {
-  height: 2.4em !important;
-  width: 2.5em !important;
+  height: 2.8em !important;
+  width: 4.2em !important;
+  border-radius: 10%; /* fully round corners */
 }
+
 .navbar-nav .nav-link {
   color: var(--main-white) !important;
   padding-right: 1rem !important;
@@ -151,7 +153,7 @@ body {
   min-height: 100vh;
 }
 .home-header {
-  padding-top: 80px !important;
+  padding-top: 100px !important;
 }
 .home-content {
   padding: 9rem 0 2rem !important;
@@ -335,8 +337,10 @@ body {
   position: relative !important;
   padding-top: 150px !important;
   padding-bottom: 30px !important;
-  background-image: var(--section-background-color) !important;
+  background-color: #ffffff !important; /* White background */
+  background-image: none !important;    /* Remove any background image */
 }
+
 .project-card,
 .blog-card {
   padding-top: 50px !important;
@@ -344,6 +348,7 @@ body {
   padding-left: 25px !important;
   padding-right: 25px !important;
   height: auto !important;
+  
 }
 .project-card-view,
 .blog-card-view {
@@ -353,7 +358,7 @@ body {
   opacity: 0.95 !important;
   transition: all 0.5s ease 0s !important;
   height: 100% !important;
-  border-radius: 14px;
+  border-radius: 30px;
   backdrop-filter: var(--glass-blur);
   border: 1px solid rgba(255, 255, 255, 0.06);
 }

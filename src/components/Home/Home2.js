@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import Tilt from "react-parallax-tilt";
-import myImg from "../../Assets/logo new.png";
+import myImg from "../../Assets/mango2.png";
 import {
   AiFillGithub,
   AiOutlineTwitter,
@@ -32,16 +32,16 @@ const aboutCardStyle = {
 };
 
 const headingStyle = {
-  color: "#006400", // MangoHub dark green
-  fontWeight: 1000,
+  color: "black",
+  fontWeight: 500,
   letterSpacing: "1px",
   marginBottom: "1.2rem",
-  fontSize: "3.2em", // Larger heading
+  fontSize: "3.2em",
 };
 
 const greenStyle = {
   color: "#006400",
-  fontWeight: 700,
+  fontWeight: 800,
 };
 
 const bodyTextStyle = {
@@ -50,6 +50,7 @@ const bodyTextStyle = {
   lineHeight: 1.78,
 };
 
+// >>> BIGGER LOGO STYLE <<<
 const avatarColStyle = {
   display: "flex",
   justifyContent: "center",
@@ -61,12 +62,16 @@ const avatarColStyle = {
 };
 
 const avatarImgStyle = {
-  maxWidth: "320px",       // Enlarged logo size
+  maxWidth: "400px",       // Make logo big (adjust as needed)
+  minWidth: "240px",
+  width: "100%",
+  height: "auto",
   borderRadius: "24px",
-  boxShadow: "0 12px 48px 0 rgba(0, 100, 0, 0.16)",
+  boxShadow: "0 16px 64px 0 rgba(0, 100, 0, 0.18)",
   background: "#f0f0f0",
-  padding: "0.3rem",
+  padding: "0.35rem",
   marginTop: "1rem",
+  objectFit: "contain",
 };
 
 const socialSectionStyle = {
@@ -236,17 +241,16 @@ function Home2() {
           <Col md={12} className="home-about-social" style={socialSectionStyle}>
             <h1 style={socialHeadingStyle}>CONNECT WITH US</h1>
             <p>
-                  <span style={{ color: "#111", fontWeight: 500 }}>
-                    mangohubsystems@gmail.com <br /> Follow {" "}
-                  </span>
-                  <span style={{ color: "#006400", fontWeight: 700 }}>
-                    MangoHub Systems
-                  </span>
-                  <span style={{ color: "#111", fontWeight: 500 }}>
-                    {" "}on social media
-                  </span>
-                </p>
-
+              <span style={{ color: "#111", fontWeight: 500 }}>
+                mangohubsystems@gmail.com <br /> Follow {" "}
+              </span>
+              <span style={{ color: "#006400", fontWeight: 700 }}>
+                MangoHub Systems
+              </span>
+              <span style={{ color: "#111", fontWeight: 500 }}>
+                {" "}on social media
+              </span>
+            </p>
             <ul style={socialLinksStyle}>
               <li>
                 <SocialIcon href="https://github.com/MangoHubSystems">
@@ -269,7 +273,6 @@ function Home2() {
                 </SocialIcon>
               </li>
             </ul>
-
             <div style={{ marginTop: "2.2rem" }}>
               <Button
                 href="mailto:mangohubsystems@gmail.com"
@@ -278,7 +281,7 @@ function Home2() {
                   color: "#fff",
                   border: "none",
                   fontWeight: 700,
-                  padding: "0.8rem 2.5rem", // Larger button
+                  padding: "0.8rem 2.5rem",
                   borderRadius: "34px",
                   fontSize: "1.2rem",
                   boxShadow: "0 2px 12px 0 rgba(0, 100, 0, 0.35)",

@@ -64,7 +64,7 @@ function About() {
         paddingBottom: "40px",
       }}
     >
-      <Particle />
+      {/* <Particle /> */}
       <Container>
         {/* <Row style={{ justifyContent: "center", padding: "10px" }}>
           <Col
