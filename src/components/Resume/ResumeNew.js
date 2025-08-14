@@ -16,7 +16,7 @@ import {
   FaHeadset,
 } from "react-icons/fa";
 import { FiSend } from "react-icons/fi";
-import Particle from "../Particle";
+// import Particle from "../Particle"; // Optional particle effect
 import contactImage from "../../Assets/mango2.png";
 
 const sectionStyle = {
@@ -29,7 +29,7 @@ const sectionStyle = {
 };
 
 const cardStyle = {
-  background: "#f9f9f9", // Light gray card on white
+  background: "#f9f9f9", // Light gray card
   borderRadius: "16px",
   boxShadow: "0 8px 20px rgba(0, 0, 0, 0.08)",
   padding: "3rem 2.5rem",
@@ -85,15 +85,21 @@ const infoItem = {
   color: "#333",
 };
 
+// Same left margin for headings AND paragraphs
+const textBlockStyle = {
+  marginLeft: "20px",
+};
+
 const iconStyle = {
   fontSize: "1.4rem",
-  color: "#006400", // Dark green icons
+  color: "#006400",
   marginTop: "3px",
 };
 
 const infoText = {
   fontSize: "1rem",
   lineHeight: "1.5",
+  marginBottom: "0.4rem",
 };
 
 const formLabelStyle = {
@@ -112,11 +118,7 @@ const formControlStyle = {
 };
 
 function ContactUs() {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -124,9 +126,7 @@ function ContactUs() {
     try {
       const response = await fetch("https://formspree.io/f/mqazapqn", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
 
@@ -148,52 +148,68 @@ function ContactUs() {
       {/* <Particle /> */}
       <Container>
         <Row className="align-items-center">
-          {/* Left Side: Image and Contact Info */}
+          {/* Left Side: Logo and Contact Info */}
           <Col lg={5} className="mb-5 mb-lg-0 pe-lg-5">
-            <div className="mb-5">
+            {/* Smaller logo */}
+            <div className="mb-4">
               <Image
                 src={contactImage}
                 alt="Contact Us"
                 fluid
                 style={{
-                  maxHeight: "400px",
+                  maxHeight: "230px",
+                  width: "auto",
                   objectFit: "contain",
                 }}
               />
             </div>
+
+            {/* Contact details box */}
             <div style={contactInfoBox}>
-              <h4 style={{ color: "#006400", marginBottom: "1.5rem", fontWeight: 600 }}>
+              <h4 style={{ color: "#006400", marginBottom: "2rem", fontWeight: 600 }}>
                 <FaHeadset className="me-2" />
                 Our Contact Details
               </h4>
+{/* Location */}
+<div style={infoItem}>
+  <FaMapMarkerAlt style={iconStyle} />
+  <div style={{ marginLeft: "5px" }}> {/* ⬅️ Reduced margin to move text closer to icon */}
+    <h6
+      style={{
+        color: "#006400", // green title
+        fontWeight: 500,
+        marginBottom: "0.25rem",
+      }}
+    >
+      Our Location
+    </h6>
+    <p style={infoText}>
+      No. 12, Web Avenue, Colombo, Sri Lanka
+    </p>
+  </div>
+</div>
 
-              <div style={infoItem}>
-                <FaMapMarkerAlt style={iconStyle} />
-                <div>
-                  <h6 style={{ color: "#006400", fontWeight: 500, marginBottom: "0.25rem" }}>
-                    Our Location
-                  </h6>
-                  <p style={infoText}>No. 12, Web Avenue, Colombo, Sri Lanka</p>
-                </div>
-              </div>
-
+              {/* Phone */}
               <div style={infoItem}>
                 <FaPhoneAlt style={iconStyle} />
-                <div>
+                <div style={textBlockStyle}>
                   <h6 style={{ color: "#006400", fontWeight: 500, marginBottom: "0.25rem" }}>
-                    Phone Number
+                    Contact Numbers
                   </h6>
-                  <p style={infoText}>+94 77 123 4567</p>
+                  <p style={infoText}>+94 71 762 1250</p>
+                  <p style={infoText}>+94 70 418 2117</p>
+                  <p style={infoText}>+94 71 492 2722</p>
                 </div>
               </div>
 
+              {/* Email */}
               <div style={infoItem}>
                 <FaEnvelope style={iconStyle} />
-                <div>
+                <div style={textBlockStyle}>
                   <h6 style={{ color: "#006400", fontWeight: 500, marginBottom: "0.25rem" }}>
                     Email Address
                   </h6>
-                  <p style={infoText}>contact@mangohubsystems.com</p>
+                  <p style={infoText}>mangohubsystems@gmail.com.com</p>
                 </div>
               </div>
             </div>
@@ -204,9 +220,10 @@ function ContactUs() {
             <div style={cardStyle}>
               <div className="mb-4">
                 <h1 style={headingStyle}>
-                  Let's Talk
+                  Let's Talk <br />
                   <span style={headingUnderline}></span>
                 </h1>
+                <br />
                 <p style={subheadingStyle}>
                   Have a project in mind or want to discuss potential collaboration?  
                   Fill out the form below and our team will get back to you within 24 hours.
@@ -273,7 +290,7 @@ function ContactUs() {
                   type="submit"
                   className="d-flex align-items-center justify-content-center gap-2"
                   style={{
-                    background: "linear-gradient(90deg, #FFC324 0%, #006400 100%)",
+                    background: "linear-gradient(90deg 0%, #006400 100%)",
                     color: "#fff",
                     border: "none",
                     fontWeight: 600,
@@ -281,7 +298,6 @@ function ContactUs() {
                     borderRadius: "12px",
                     fontSize: "1.05rem",
                     width: "100%",
-                    transition: "all 0.3s ease",
                     marginTop: "0.5rem",
                   }}
                 >
