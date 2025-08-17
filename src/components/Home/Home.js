@@ -16,14 +16,14 @@ function Home() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          background: "#fff", // Clean white background
+          background: "white", // Clean white background
           padding: 0,
-          marginTop: "-150px",
+          marginTop: "-200px",
           position: "relative",
           overflow: "hidden",
         }}
       >
-        {/* <Particle /> */}
+        <Particle />
 
         <Row
           style={{
@@ -51,50 +51,52 @@ function Home() {
               marginTop: "20px", // Push content down
             }}
           >
-            <h1
-              className="heading"
-              style={{
-                color: "#222", // Black greeting
-                fontWeight: 700,
-                fontSize: "5.5rem", // Increased font size
-                marginBottom: "20rem",
-                letterSpacing: "1px",
-                lineHeight: 1.2,
-                textAlign: "center",
-              }}
-            >
-              Hello!
-              We Are{" "}<br/>
+                    <h1
+            className="heading"
+            style={{
+              color: "#0A1F44", // Black for "We Are"
+              fontWeight: 700,
+              fontSize: "8.5rem",
+              marginBottom: "20rem",
+              letterSpacing: "1px",
+              lineHeight: 1.2,
+              textAlign: "center",
+            }}
+          >
+            <span style={{ color: "purple" }}>Hello!</span>{" "}
+            We Are <br />
+
               <span
                 style={{
-                  color: "#006400", // Dark green brand
+                  color: "#0A1F44", // Dark green brand
                   fontWeight: 900,
-                  fontSize: "5.0rem", // Larger MangoHub name
+                  fontSize: "7.0rem", // Larger MangoHub name
                 }}
               >
-                MangoHub Systems
-                              <span
+                      MindCloud
+                            <span
                 className="wave"
                 role="img"
-                aria-labelledby="wave"
+                aria-labelledby="cloud"
                 style={{
-                  fontSize: "4rem", // You can adjust to 3rem, 5rem, etc. as desired
+                  fontSize: "5rem", // adjust size as needed
                   marginLeft: "0.3rem",
                   verticalAlign: "middle",
                   lineHeight: 1,
                 }}
               >
-                🥭
+                ☁️
               </span>
+
               </span>
               <br/>
             </h1>
 
             <h3
               style={{
-                color: "#555", // Tagline gray
+                color: "black", // Tagline gray
                 fontWeight: 500,
-                fontSize: "1rem", // Bigger tagline
+                fontSize: "1.2rem", // Bigger tagline
                 fontStyle: "italic",
                 marginBottom: "3rem",
                 marginTop: "-18rem",
@@ -102,7 +104,7 @@ function Home() {
                 textAlign: "center",
               }}
             >
-              "Empowering businesses with fresh, intelligent web solutions that grow with you."
+              "Code Beyond Limits, Innovate with MindCloud"
             </h3>
 
             <div
@@ -115,7 +117,7 @@ function Home() {
               <Type />
             </div>
 
-            <p
+            {/* <p
               style={{
                 color: "#222",
                 fontSize: "1.18rem", // Larger paragraph font
@@ -139,14 +141,14 @@ function Home() {
               applications for your success.<br />
               We build scalable, secure, and modern web solutions—custom web
               apps, cloud integration, UI/UX design, and quality assurance.
-            </p>
+            </p> */}
 
             <Button
               href="#about"
               variant="primary"
               style={{
-                backgroundColor: "#006400",
-                color: "#fff",
+                backgroundColor: "#0A1F44",
+                color: "white",
                 border: "none",
                 fontWeight: 700,
                 padding: "0.8rem 2.5rem", // Slightly bigger button
@@ -155,7 +157,7 @@ function Home() {
                 boxShadow: "0 2px 10px 0 rgba(0,100,0,0.10)",
                 transition: "box-shadow 0.2s, transform 0.2s",
                 letterSpacing: "0.5px",
-                marginTop: "0.6rem",
+                marginTop: "0.8rem",
               }}
             >
               Explore More

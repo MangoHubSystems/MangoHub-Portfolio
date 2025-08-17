@@ -16,40 +16,46 @@ import {
 
 const serviceData = [
   {
-    icon: <FaLaptopCode size={38} color="#3CB371" />,
+    icon: <FaLaptopCode size={38} color="#0A1F44" />,
     title: "Custom Web Development",
     desc: "Modern, scalable websites and apps built for your business.",
-    bg: "rgba(60,179,113,0.08)",
+    bg: "rgba(10, 31, 68, 0.08)",
+    borderColor: "#0A1F44",
   },
   {
-    icon: <FaPalette size={38} color="#FFC324" />,
+    icon: <FaPalette size={38} color="#00b9ff" />,
     title: "UI/UX Design",
     desc: "User-friendly, engaging interfaces for great digital experiences.",
-    bg: "rgba(255,195,36,0.08)",
+    bg: "rgba(0, 185, 255, 0.08)",
+    borderColor: "#00b9ff",
   },
   {
-    icon: <FaCloud size={38} color="#3CB371" />,
+    icon: <FaCloud size={38} color="#993DFF" />,
     title: "Cloud Solutions",
     desc: "Cloud integration and management for secure, reliable infrastructure.",
-    bg: "rgba(60,179,113,0.08)",
+    bg: "rgba(153, 61, 255, 0.08)",
+    borderColor: "#993DFF",
   },
   {
-    icon: <FaCogs size={38} color="#FFC324" />,
+    icon: <FaCogs size={38} color="#0A1F44" />,
     title: "Business Automation",
     desc: "Automation tools and workflows to boost your efficiency.",
-    bg: "rgba(255,195,36,0.08)",
+    bg: "rgba(10, 31, 68, 0.08)",
+    borderColor: "#0A1F44",
   },
   {
-    icon: <FaShoppingCart size={38} color="#3CB371" />,
+    icon: <FaShoppingCart size={38} color="#00b9ff" />,
     title: "E-Commerce Platforms",
     desc: "Secure, robust online stores with seamless payment integration.",
-    bg: "rgba(60,179,113,0.08)",
+    bg: "rgba(0, 185, 255, 0.08)",
+    borderColor: "#00b9ff",
   },
   {
-    icon: <FaShieldAlt size={38} color="#FFC324" />,
+    icon: <FaShieldAlt size={38} color="#993DFF" />,
     title: "QA & Testing",
     desc: "Manual and automated software testing for reliability and security.",
-    bg: "rgba(255,195,36,0.08)",
+    bg: "rgba(153, 61, 255, 0.08)",
+    borderColor: "#993DFF",
   },
 ];
 
@@ -59,103 +65,31 @@ function About() {
       fluid
       className="about-section"
       style={{
-        background: "#fff", // Changed to white
+        background: "#fff",
         minHeight: "100vh",
         paddingBottom: "40px",
       }}
     >
-      {/* <Particle /> */}
+      <Particle />
       <Container>
-        {/* <Row style={{ justifyContent: "center", padding: "10px" }}>
-          <Col
-            md={7}
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              paddingTop: "20px",
-              paddingBottom: "50px",
-              color: "#333", // dark text for readability on white
-            }}
-          >
-            <h1
-              style={{
-                fontSize: "2.8rem",
-                fontWeight: 800,
-                color: "#222", // Darker text for headers on white
-                textAlign: "center",
-                marginTop: "3rem",
-                marginBottom: "2.2rem",
-                letterSpacing: "0.5px",
-              }}
-            >
-              About <span style={{ color: "#3CB371" }}>MangoHub Systems</span>
-            </h1>
-
-            <br />
-            <p
-              style={{
-                fontSize: "1.55rem",
-                lineHeight: 1.7,
-                marginBottom: "1.8rem",
-                color: "#555", // medium dark gray for body text
-              }}
-            >
-              MangoHub Systems delivers comprehensive digital solutions to help
-              businesses thrive in a fast-evolving world.
-              <br />
-              <br />
-              Our team blends technical expertise and creative vision to design,
-              develop, and maintain secure, scalable web applications and
-              platforms. From custom web development and intuitive UI/UX design
-              to cloud integration, business automation, and rigorous quality
-              assurance, we ensure every project is tailored to your unique
-              goals and challenges.
-              <br />
-              <br />
-              Whether you’re building a new digital presence, streamlining
-              operations, or launching an e-commerce platform, MangoHub Systems
-              is your trusted partner for innovation, reliability, and growth.
-            </p>
-          </Col>
-          <Col
-            md={5}
-            style={{
-              paddingTop: "90px",
-              paddingBottom: "50px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-            className="about-img"
-          >
-            <img
-              src={laptopImg}
-              alt="about"
-              className="img-fluid"
-              style={{
-                maxWidth: "320px",
-                borderRadius: "18px",
-                boxShadow: "0 8px 32px 0 rgba(60, 179, 113, 0.10)",
-                background: "#f0f0f0", // lighter background to contrast image
-              }}
-            />
-          </Col>
-        </Row> */}
-
+        {/* Main Services Heading */}
         <h1
           className="project-heading"
           style={{
-            color: "#222",
-            fontWeight: 700,
+            color: "#0A1F44",
+            fontWeight: 800,
             marginTop: "2.5rem",
             textAlign: "center",
+            fontSize: "3rem",
+            letterSpacing: "1px",
           }}
         >
-          <span style={{ color: "#3CB371" }}></span>MangoHub System <span style={{ color: "#3CB371" }}>Services</span>
+          <span style={{ color: "#0A1F44" }}>MindCloud</span>{" "}
+          <span style={{ color: "purple" }}>Services</span>
         </h1>
 
-        <Row style={{ marginTop: "30px", marginBottom: "50px" }}>
+        {/* Services Grid */}
+        <Row style={{ marginTop: "50px", marginBottom: "60px" }}>
           {serviceData.map((service, idx) => (
             <Col
               md={4}
@@ -163,7 +97,7 @@ function About() {
               xs={12}
               key={idx}
               style={{
-                marginBottom: "2rem",
+                marginBottom: "2.5rem",
                 display: "flex",
                 justifyContent: "center",
               }}
@@ -171,35 +105,59 @@ function About() {
               <div
                 style={{
                   background: service.bg,
-                  borderRadius: "16px",
-                  padding: "2rem 1.5rem",
-                  minHeight: "210px",
-                  maxWidth: "340px",
+                  borderRadius: "18px",
+                  padding: "2.2rem 1.8rem",
+                  minHeight: "240px",
+                  maxWidth: "360px",
                   width: "100%",
-                  boxShadow: "0 4px 24px 0 #3CB37122",
+                  boxShadow: `0 6px 28px 0 ${service.borderColor}22`,
+                  border: `1px solid ${service.borderColor}30`,
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
                   textAlign: "center",
-                  transition: "transform 0.2s, box-shadow 0.2s",
+                  transition: "all 0.3s ease",
+                  cursor: "pointer",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "translateY(-8px)";
+                  e.currentTarget.style.boxShadow = `0 12px 40px 0 ${service.borderColor}35`;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow = `0 6px 28px 0 ${service.borderColor}22`;
                 }}
               >
-                <div style={{ marginBottom: "1.1rem" }}>{service.icon}</div>
+                <div
+                  style={{
+                    marginBottom: "1.3rem",
+                    padding: "0.8rem",
+                    background: `${service.borderColor}15`,
+                    borderRadius: "50%",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  {service.icon}
+                </div>
                 <h3
                   style={{
-                    color: "#3CB371",
+                    color: service.borderColor,
                     fontWeight: 700,
-                    fontSize: "1.18rem",
-                    marginBottom: "0.8rem",
+                    fontSize: "1.25rem",
+                    marginBottom: "1rem",
+                    letterSpacing: "0.3px",
                   }}
                 >
                   {service.title}
                 </h3>
                 <p
                   style={{
-                    color: "#555",
-                    fontSize: "1.02rem",
-                    lineHeight: 1.5,
+                    color: "#4a5568",
+                    fontSize: "1.05rem",
+                    lineHeight: 1.6,
+                    fontWeight: 400,
                   }}
                 >
                   {service.desc}
@@ -209,27 +167,35 @@ function About() {
           ))}
         </Row>
 
+        {/* Professional Skillset Section */}
         <h1
           className="project-heading"
           style={{
-            color: "#222",
+            color: "#0A1F44",
             fontWeight: 700,
-            marginTop: "2.5rem",
+            marginTop: "4rem",
+            fontSize: "2.5rem",
+            letterSpacing: "0.5px",
           }}
         >
-          Professional <span style={{ color: "#3CB371" }}>Skillset</span>
+          Professional{" "}
+          <span style={{ color: "#00b9ff" }}>Skillset</span>
         </h1>
         <Techstack />
 
+        {/* Tools Section */}
         <h1
           className="project-heading"
           style={{
-            color: "#222",
+            color: "#0A1F44",
             fontWeight: 700,
-            marginTop: "2.5rem",
+            marginTop: "4rem",
+            fontSize: "2.5rem",
+            letterSpacing: "0.5px",
           }}
         >
-          <span style={{ color: "#3CB371" }}>Tools</span> We Use
+          <span style={{ color: "#993DFF" }}>Tools</span>{" "}
+          <span style={{ color: "#0A1F44" }}>We Use</span>
         </h1>
         <Toolstack />
 

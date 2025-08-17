@@ -21,7 +21,7 @@ html {
 /* General */
 body {
   background: var(--section-background-color);
-  color: var(--main-white);
+  color: var(black);
   font-family: "Segoe UI", "Roboto", Arial, sans-serif;
   margin: 10;
   padding: 20;
@@ -113,8 +113,8 @@ body {
   letter-spacing: 1px;
 }
 .logo {
-  height: 3.8em !important;
-  width: 6.2em !important;
+  height: .8em !important;
+  width: 5.2em !important;
   border-radius: 10%; /* fully round corners */
 }
 
@@ -200,13 +200,13 @@ body {
 }
 .Typewriter__wrapper {
   font-size: 2.2em !important;
-  color: #006400 !important; /* Dark green */
+  color: purple !important; /* Dark green */
   font-weight: 600 !important;
 }
 
 .Typewriter__cursor {
   font-size: 2.4em !important;
-  color: var(--accent-green) !important;
+  color: var(blue) !important;
 }
 @media (max-width: 767px) {
   .Typewriter__wrapper {
@@ -401,19 +401,19 @@ body {
 
 /* Buttons */
 .btn-primary {
-  color: var(--main-black) !important;
+  color: var(white) !important;
   background: linear-gradient(
     90deg,
     
-    var(--accent-green) 100%
+    var(blue) 100%
   ) !important;
   border: none !important;
   box-shadow: 0 2px 8px 0 rgba(255, 195, 36, 0.13);
   transition: box-shadow 0.2s, transform 0.2s;
 }
 .btn-primary:hover {
-  color: var(--main-black) !important;
-  background: var(--accent-green) !important;
+  color: var(white) !important;
+  background: var(white) !important;
   box-shadow: 0 4px 24px 0 var(--accent-yellow);
   transform: translateY(-2px) scale(1.03);
 }

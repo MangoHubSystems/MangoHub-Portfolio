@@ -1,74 +1,75 @@
 import React from "react";
 import Particles from "react-tsparticles";
-import { loadFull } from "tsparticles";
 
 function Particle() {
   return (
     <Particles
       id="tsparticles"
-      params={{
-        background: {},
+      options={{
+        background: {
+          color: {
+            value: "transparent", // Transparent background to show underlying UI
+          },
+        },
+        fpsLimit: 60,
         particles: {
           number: {
-            value: 90,
+            value: 80,
             density: {
               enable: true,
-              value_area: 1000,
+              area: 1000,
             },
           },
           color: {
-            value: ["#000000", "#006400", "#B8860B"], // black, dark green, dark yellow
+            value: ["#0A1F44", "#000000", "#6A0DAD", "#FFFFFF"], // navy, black, purple, white
           },
           shape: {
             type: "circle",
           },
           size: {
             value: 3,
-            random: true,
+            random: { enable: true, minimumValue: 1 },
             anim: {
               enable: true,
               speed: 1,
-              size_min: 0.5,
+              size_min: 0.3,
               sync: false,
             },
           },
           opacity: {
-            value: 0.6,
-            random: true,
+            value: 0.7,
+            random: { enable: true, minimumValue: 0.2 },
             anim: {
               enable: true,
-              speed: 0.8,
+              speed: 1,
               opacity_min: 0.1,
               sync: false,
             },
           },
-          line_linked: {
-            enable: true,
-            distance: 130,
-            color: "#000000", // black lines for subtlety
-            opacity: 0.05,
-            width: 1,
-          },
           move: {
             enable: true,
-            speed: 0.4,
+            speed: 0.6,
             direction: "none",
             random: true,
             straight: false,
-            out_mode: "out",
-            attract: {
-              enable: false,
-            },
+            outModes: "out",
+          },
+          links: {
+            enable: true,
+            distance: 120,
+            color: "#FFFFFF",
+            opacity: 0.05,
+            width: 1,
           },
         },
         interactivity: {
-          detect_on: "canvas",
+          detectsOn: "canvas",
           events: {
-            onhover: {
+            onHover: {
               enable: true,
-              mode: ["grab", "bubble"],
+              mode: "grab",
             },
-            onclick: {
+            onClick: {
               enable: true,
               mode: "repulse",
             },
@@ -76,8 +77,8 @@ function Particle() {
           },
           modes: {
             grab: {
-              distance: 140,
-              line_linked: {
+              distance: 150,
+              links: {
                 opacity: 0.2,
               },
             },
@@ -86,18 +87,15 @@ function Particle() {
               size: 6,
               duration: 2,
               opacity: 0.8,
-              speed: 2,
+              speed: 3,
             },
             repulse: {
               distance: 120,
-              duration: 0.5,
-            },
-            push: {
-              particles_nb: 4,
+              duration: 0.6,
             },
           },
         },
-        retina_detect: true,
+        detectRetina: true,
       }}
     />
   );

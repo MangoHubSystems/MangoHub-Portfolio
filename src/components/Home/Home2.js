@@ -9,9 +9,9 @@ import {
 } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 
-// Inline keyframes for fade-in/up heading animation
+// Animation keyframes for heading fade-in
 const headingAnimStyle = {
-  animation: "fadeInUp 5s cubic-bezier(.42,.96,.58,1.01) 0s both",
+  animation: "fadeInUp 2.2s cubic-bezier(.42,.96,.58,1.01) 0s both",
 };
 
 const sectionStyle = {
@@ -22,35 +22,43 @@ const sectionStyle = {
 };
 
 const aboutCardStyle = {
-  background: "rgba(233, 234, 187, 0.74)", // glass effect, pale yellow-white
+  background: "rgba(2, 7, 16, 0.66)", // navy blue glass for strong contrast
   borderRadius: "18px",
-  boxShadow: "0 4px 32px rgba(34, 139, 34, 0.10)",
-  backdropFilter: "blur(8px)",
-  padding: "3rem 2.5rem",
-  color: "#222",
+  boxShadow: "0 8px 36px rgba(10,31,68,0.10)",
+  backdropFilter: "blur(14px)",
+  padding: "2.5rem 2rem",
+  color: "#f4f8fa",
   marginBottom: "2rem",
 };
 
 const headingStyle = {
-  color: "black",
-  fontWeight: 500,
-  letterSpacing: "1px",
+  color: "#fff",
+  fontWeight: 800,
+  letterSpacing: "1.5px",
   marginBottom: "1.2rem",
-  fontSize: "3.2em",
+  fontSize: "2.9em",
+  textShadow: "0 2px 8px rgba(10,31,68,0.14)"
 };
 
-const greenStyle = {
-  color: "#006400",
+const highlightStyle = {
+  color: "#0A1F44", // purple for 'MindCLOUD'
   fontWeight: 800,
+  letterSpacing: "1px",
+  textShadow: "0 2px 8px rgba(153,61,255,0.10)"
 };
 
 const bodyTextStyle = {
-  color: "#333",
-  fontSize: "1.18rem",
-  lineHeight: 1.78,
+  color: "#e8f0fa",
+  fontSize: "1.13rem",
+  lineHeight: 1.7,
+  fontWeight: 400,
 };
 
-// >>> BIGGER LOGO STYLE <<<
+const subHeadingStyle = {
+  color: "#00b9ff", // secondary light blue accent (for key points if needed)
+  fontWeight: 700,
+};
+
 const avatarColStyle = {
   display: "flex",
   justifyContent: "center",
@@ -62,14 +70,14 @@ const avatarColStyle = {
 };
 
 const avatarImgStyle = {
-  maxWidth: "400px",       // Make logo big (adjust as needed)
-  minWidth: "240px",
+  maxWidth: "340px",
+  minWidth: "180px",
   width: "100%",
   height: "auto",
-  borderRadius: "24px",
-  boxShadow: "0 16px 64px 0 rgba(0, 100, 0, 0.18)",
-  background: "#f0f0f0",
-  padding: "0.35rem",
+  borderRadius: "22px",
+  boxShadow: "0 16px 60px 0 rgba(10,31,68,0.13)",
+  background: "#e0e7ef",
+  padding: "0.4rem",
   marginTop: "1rem",
   objectFit: "contain",
 };
@@ -83,10 +91,11 @@ const socialSectionStyle = {
 };
 
 const socialHeadingStyle = {
-  color: "#006400",
+  color: "#0A1F44",
   fontSize: "2rem",
-  marginBottom: "0.7rem",
-  fontWeight: 700,
+  marginBottom: "0rem",
+  fontWeight: 800,
+  letterSpacing: "1px"
 };
 
 const socialLinksStyle = {
@@ -96,7 +105,7 @@ const socialLinksStyle = {
   padding: 0,
   marginTop: "1.2rem",
   listStyle: "none",
-  color: "#222",
+  color: "#fff",
 };
 
 const iconStyle = {
@@ -105,12 +114,12 @@ const iconStyle = {
   justifyContent: "center",
   width: "44px",
   height: "44px",
-  background: "rgba(0, 100, 0, 0.07)",
+  background: "rgba(0, 187, 255, 0.58)", // light blue highlight
   borderRadius: "50%",
-  color: "#006400",
+  color: "#0A1F44", // navy blue icons
   fontSize: "1.7em",
-  border: "1.5px solid rgba(0, 100, 0, 0.25)",
-  boxShadow: "0 2px 8px 0 rgba(0, 100, 0, 0.09)",
+  border: "1.5px solidrgb(2, 129, 175)", // light blue border
+  boxShadow: "0 2px 8px 0 rgba(0,185,255,0.11)",
   transition: "background 0.2s, color 0.2s, box-shadow 0.2s",
   textDecoration: "none",
   cursor: "pointer",
@@ -124,13 +133,13 @@ function SocialIcon({ href, children }) {
 
   const baseStyle = {
     ...iconStyle,
-    background: hovered ? "#006400" : "rgba(0, 100, 0, 0.07)",
-    color: hovered ? "#fff" : "#006400",
-    borderColor: hovered ? "#004d00" : "rgba(0, 100, 0, 0.25)",
+    background: hovered ? "#993DFF" : "rgba(0,185,255,0.15)",
+    color: hovered ? "#fff" : "#0A1F44",
+    borderColor: hovered ? "#993DFF" : "#00b9ff",
     boxShadow: hovered
-      ? "0 4px 12px 0 rgba(0, 100, 0, 0.5)"
-      : "0 2px 8px 0 rgba(0, 100, 0, 0.09)",
-    transition: "all 0.25s ease-in-out",
+      ? "0 4px 18px 0 rgba(153,61,255,0.13)"
+      : "0 2px 8px 0 rgba(0,185,255,0.11)",
+    transition: "all 0.25s ease",
   };
 
   return (
@@ -147,12 +156,11 @@ function SocialIcon({ href, children }) {
   );
 }
 
-// Animation keyframes for heading
 const globalAnimStyles = `
 @keyframes fadeInUp {
   0% {
     opacity: 0;
-    transform: translateY(100px);
+    transform: translateY(64px);
   }
   100% {
     opacity: 1;
@@ -165,7 +173,7 @@ function Home2() {
   const headingRef = useRef(null);
 
   useEffect(() => {
-    // Inject animation styles only once
+    // Add animation styles once
     if (!document.getElementById("mh-anim-keyframes")) {
       const styleTag = document.createElement("style");
       styleTag.id = "mh-anim-keyframes";
@@ -184,107 +192,96 @@ function Home2() {
                 style={{ ...headingStyle, ...headingAnimStyle }}
                 ref={headingRef}
               >
-                ABOUT <span style={greenStyle}>MANGOHUB SYSTEMS</span>
+                About <span style={highlightStyle}>MindCLOUD</span>
               </h1>
               <p style={bodyTextStyle}>
-                <b style={greenStyle}>MangoHub Systems</b> is a forward-thinking
+                <span style={highlightStyle}>MindCloud</span> is a forward-thinking
                 technology company dedicated to empowering businesses through
-                innovative digital solutions.
-                <br />
-                <br />
-                Our team specializes in{" "}
-                <b style={greenStyle}>custom web development</b>,{" "}
-                <b style={greenStyle}>enterprise automation</b>, and end-to-end{" "}
-                <b style={greenStyle}>quality assurance</b>. We deliver robust,
-                scalable, and secure platforms tailored to the unique needs of
-                each client.
-                <br />
-                <br />
-                <b style={greenStyle}>Our expertise:</b> Full-stack web
+                innovative digital solutions.<br /><br />
+                Our team specializes in {" "}
+                <span style={subHeadingStyle}>custom web development</span>,{" "}
+                <span style={subHeadingStyle}>enterprise automation</span>, and {" "}
+                <span style={subHeadingStyle}>quality assurance</span>. We deliver robust,
+                scalable, and secure platforms tailored to the unique needs of each client.<br /><br />
+                <span style={subHeadingStyle}>Our expertise:</span> Full-stack web
                 development, UI/UX design, API & system integration, e-commerce
                 platforms, business automation tools, and comprehensive software
-                testing—including both manual and automated QA.
-                <br />
-                <br />
-                <b style={greenStyle}>Our mission:</b> To help businesses grow
+                testing—including both manual and automated QA.<br /><br />
+                <span style={subHeadingStyle}>Our mission:</span> To help businesses grow
                 and thrive by providing reliable, high-performance digital
                 products and seamless user experiences. We believe in the power
                 of technology to transform organizations, inspired by the
-                vibrant energy and adaptability of the mango!
-                <br />
-                <br />
+                limitless potential of the cloud!<br /><br />
                 We leverage leading technologies such as{" "}
-                <b style={greenStyle}>React.js</b>,{" "}
-                <b style={greenStyle}>Node.js</b>,{" "}
-                <b style={greenStyle}>cloud infrastructure</b>, and advanced
-                testing frameworks like <b style={greenStyle}>Selenium</b> to
-                ensure every solution is future-ready.
-                <br />
-                <br />
-                Whether you’re a startup, SME, or enterprise, MangoHub Systems
+                <span style={subHeadingStyle}>React.js</span>,{" "}
+                <span style={subHeadingStyle}>Node.js</span>,{" "}
+                <span style={subHeadingStyle}>cloud infrastructure</span>, and advanced
+                testing frameworks like <span style={subHeadingStyle}>Selenium</span> to
+                ensure every solution is future-ready.<br /><br />
+                Whether you’re a startup, SME, or enterprise, MindCloud
                 is your partner for digital innovation, automation, and growth.
               </p>
             </div>
           </Col>
-          <Col md={4} className="myAvtar" style={avatarColStyle}>
-            <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} glareEnable glareMaxOpacity={0.15}>
+          <Col md={4} style={avatarColStyle}>
+            <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} glareEnable glareMaxOpacity={0.13}>
               <img
                 src={myImg}
                 style={avatarImgStyle}
                 className="img-fluid"
-                alt="MangoHub mascot"
+                alt="MindCloud mascot"
               />
             </Tilt>
           </Col>
         </Row>
         <Row>
-          <Col md={12} className="home-about-social" style={socialSectionStyle}>
+          <Col md={12} style={socialSectionStyle}>
             <h1 style={socialHeadingStyle}>CONNECT WITH US</h1>
             <p>
-              <span style={{ color: "#111", fontWeight: 500 }}>
-                mangohubsystems@gmail.com <br /> Follow {" "}
+              <span style={{ color: "#0A1F44", fontWeight: 600 }}>
+                mindcloudco@gmail.com <br /> Follow{" "}
               </span>
-              <span style={{ color: "#006400", fontWeight: 700 }}>
-                MangoHub Systems
+              <span style={{ color: "#993DFF", fontWeight: 800 }}>
+                MindCloud
               </span>
-              <span style={{ color: "#111", fontWeight: 500 }}>
+              <span style={{ color: "#0A1F44", fontWeight: 600 }}>
                 {" "}on social media
               </span>
             </p>
             <ul style={socialLinksStyle}>
               <li>
-                <SocialIcon href="https://github.com/MangoHubSystems">
+                <SocialIcon href="https://github.com/MindCloud">
                   <AiFillGithub />
                 </SocialIcon>
               </li>
               <li>
-                <SocialIcon href="https://twitter.com/MangoHubSystems">
+                <SocialIcon href="https://twitter.com/MindCloud">
                   <AiOutlineTwitter />
                 </SocialIcon>
               </li>
               <li>
-                <SocialIcon href="https://www.linkedin.com/company/mangohub-systems/">
+                <SocialIcon href="https://www.linkedin.com/company/mindcloud">
                   <FaLinkedinIn />
                 </SocialIcon>
               </li>
               <li>
-                <SocialIcon href="https://www.instagram.com/mangohub_systems">
+                <SocialIcon href="https://www.instagram.com/mindcloud">
                   <AiFillInstagram />
                 </SocialIcon>
               </li>
             </ul>
             <div style={{ marginTop: "2.2rem" }}>
               <Button
-                href="mailto:mangohubsystems@gmail.com"
+                href="mailto:mindcloudco@gmail.com"
                 style={{
-                  backgroundColor: "#006400",
+                  backgroundColor: "#0A1F44",
                   color: "#fff",
                   border: "none",
-                  fontWeight: 700,
-                  padding: "0.8rem 2.5rem",
+                  fontWeight: 800,
+                  padding: "0.85rem 2.7rem",
                   borderRadius: "34px",
                   fontSize: "1.2rem",
-                  boxShadow: "0 2px 12px 0 rgba(0, 100, 0, 0.35)",
+                  boxShadow: "0 2px 16px 0 rgba(153,61,255,0.16)",
                   transition: "box-shadow 0.2s, transform 0.2s",
                   zIndex: 1,
                   position: "relative",

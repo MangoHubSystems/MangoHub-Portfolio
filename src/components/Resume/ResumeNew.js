@@ -16,11 +16,11 @@ import {
   FaHeadset,
 } from "react-icons/fa";
 import { FiSend } from "react-icons/fi";
-// import Particle from "../Particle"; // Optional particle effect
+import Particle from "../Particle"; // Optional particle effect
 import contactImage from "../../Assets/mango2.png";
 
 const sectionStyle = {
-  background: "#fff", // White background
+  background: "rgba(20, 19, 19, 0.68)", // White background
   minHeight: "100vh",
   padding: "80px 0",
   color: "#222",
@@ -145,7 +145,7 @@ function ContactUs() {
 
   return (
     <Container fluid style={sectionStyle}>
-      {/* <Particle /> */}
+      <Particle />
       <Container>
         <Row className="align-items-center">
           {/* Left Side: Logo and Contact Info */}
