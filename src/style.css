@@ -100,7 +100,7 @@ body {
 
 .navbar-toggler span {
   display: block !important;
-  background-color: var(--accent-yellow) !important;
+  background-color: var(#0A1F44) !important;
   height: 4px !important;
   width: 27px !important;
   margin-top: 5px !important;
@@ -108,7 +108,7 @@ body {
   opacity: 1 !important;
 }
 .navbar-brand {
-  color: var(--accent-yellow) !important;
+  color: var(#0A1F44) !important;
   font-weight: bold;
   letter-spacing: 1px;
 }
@@ -136,7 +136,7 @@ body {
   height: 3px;
   width: 0;
   border-radius: 16px;
-  background: var(--accent-yellow);
+  background: purple;
   transition: all 0.3s ease-out 0s;
 }
 .navbar-nav .nav-item a:hover::after {
