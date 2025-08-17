@@ -36,7 +36,7 @@ body {
   background: var(--main-black);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--accent-green);
+  background: #2755a3;
   border-radius: 12px;
 }
 ::-webkit-scrollbar-thumb:hover {

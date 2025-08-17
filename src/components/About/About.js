@@ -84,7 +84,7 @@ function About() {
             letterSpacing: "1px",
           }}
         >
-          <span style={{ color: "#0A1F44" }}>MindCloud</span>{" "}
+          <span style={{ color: "rgb(7, 56, 140)" }}>MindCloud</span>{" "}
           <span style={{ color: "purple" }}>Services</span>
         </h1>
 
@@ -171,7 +171,7 @@ function About() {
         <h1
           className="project-heading"
           style={{
-            color: "#0A1F44",
+            color: "rgb(7, 56, 140)",
             fontWeight: 700,
             marginTop: "4rem",
             fontSize: "2.5rem",
@@ -195,7 +195,7 @@ function About() {
           }}
         >
           <span style={{ color: "#993DFF" }}>Tools</span>{" "}
-          <span style={{ color: "#0A1F44" }}>We Use</span>
+          <span style={{ color: "rgb(7, 56, 140)" }}>We Use</span>
         </h1>
         <Toolstack />
 

@@ -111,7 +111,7 @@ function Home2() {
                 About{" "}
                 <span
                   style={{
-                    background: "linear-gradient(135deg, #993DFF, #00b9ff)",
+                    background: "rgb(7, 56, 140)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                   }}
@@ -153,7 +153,7 @@ function Home2() {
             >
               <h2
                 style={{
-                  color: "#0A1F44",
+                  color: "purple",
                   fontSize: "2rem",
                   fontWeight: 700,
                   marginBottom: "1.5rem",
@@ -362,7 +362,7 @@ function Home2() {
             >
               <h2
                 style={{
-                  color: "#0A1F44",
+                  color: "rgb(7, 56, 140)",
                   fontSize: "2.5rem",
                   fontWeight: 700,
                   marginBottom: "1rem",

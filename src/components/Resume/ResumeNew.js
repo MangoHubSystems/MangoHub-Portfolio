@@ -150,7 +150,7 @@ function ContactUs() {
                 Get In{" "}
                 <span
                   style={{
-                    background: "linear-gradient(135deg, #993DFF, #00b9ff)",
+                    background: "rgb(7, 56, 140)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                   }}

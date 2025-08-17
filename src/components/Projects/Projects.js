@@ -150,7 +150,7 @@ function Projects() {
             style={{
               fontSize: "clamp(2.5rem, 5vw, 4rem)",
               fontWeight: 900,
-              color: "#0A1F44",
+              color: "purple",
               marginBottom: "1rem",
               letterSpacing: "-0.02em",
             }}
@@ -158,7 +158,7 @@ function Projects() {
             Our Recent{" "}
             <span
               style={{
-                background: "linear-gradient(135deg, #993DFF, #00b9ff)",
+                background: "rgb(7, 56, 140)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
               }}
@@ -329,7 +329,7 @@ function Projects() {
           >
             <h3
               style={{
-                color: "#0A1F44",
+                color: "purple",
                 fontSize: "1.8rem",
                 fontWeight: 700,
                 marginBottom: "1rem",
@@ -349,7 +349,7 @@ function Projects() {
             </p>
             <Button
               style={{
-                background: "linear-gradient(135deg, #993DFF, #00b9ff)",
+                background: "rgb(37, 103, 218)",
                 color: "white",
                 border: "none",
                 fontWeight: 700,

@@ -109,7 +109,7 @@ function Home() {
   style={{
     fontSize: "clamp(4rem, 8vw, 8rem)",
     fontWeight: 900, // Fixed from 1000 to 900 (max valid value)
-    color: "#0A1F44", // Changed from background to color
+    color: "rgb(1, 40, 107)", // Changed from background to color
     marginBottom: "2rem",
     letterSpacing: "-0.03em",
     lineHeight: 0.9,
