@@ -3,7 +3,7 @@ import Navbar from "react-bootstrap/Navbar";
 import { useLocation, Link } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
-import logo from "../Assets/mango2.png";
+import logo from "../Assets/mind.png";
 import Button from "react-bootstrap/Button";
 import { CgGitFork, CgFileDocument } from "react-icons/cg";
 import { ImBlog } from "react-icons/im";

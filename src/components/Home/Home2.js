@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import Tilt from "react-parallax-tilt";
-import myImg from "../../Assets/mango2.png";
+import myImg from "../../Assets/mind.png";
 import {
   AiFillGithub,
   AiOutlineTwitter,
@@ -41,10 +41,10 @@ function Home2() {
   ];
 
   const stats = [
-    { number: "150+", label: "Projects Completed", color: "#0A1F44" },
+    { number: "10+", label: "Projects Completed", color: "#0A1F44" },
     { number: "98%", label: "Client Satisfaction", color: "#00b9ff" },
     { number: "24/7", label: "Support Available", color: "#993DFF" },
-    { number: "5+", label: "Years of Excellence", color: "#0A1F44" },
+    { number: "2+", label: "Years of Excellence", color: "#0A1F44" },
   ];
 
   return (
@@ -433,7 +433,7 @@ function Home2() {
                   ✉️ Email Us
                 </Button>
 
-                <Button
+                {/* <Button
                   variant="outline"
                   style={{
                     background: "rgba(153, 61, 255, 0.1)",
@@ -457,7 +457,7 @@ function Home2() {
                   }}
                 >
                   🗓️ Schedule Call
-                </Button>
+                </Button> */}
               </div>
             </div>
           </Col>

@@ -23,7 +23,7 @@ import {
 } from "react-icons/fa";
 import { FiSend } from "react-icons/fi";
 import Particle from "../Particle";
-import contactImage from "../../Assets/mango2.png";
+import contactImage from "../../Assets/mind.png";
 
 function ContactUs() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -73,10 +73,35 @@ function ContactUs() {
     {
       icon: <FaEnvelope />,
       title: "Email Address",
-      details: ["mindcloudco@gmail.com"],
+      details: ["mindcloudtech@gmail.com"],
       color: "#993DFF"
     },
   ];
+  {contactInfo.map((info, index) => (
+    <div key={index} className="mb-6 flex items-start space-x-4">
+      <div style={{ color: info.color, fontSize: "1.5rem" }}>
+        {info.icon}
+      </div>
+      <div>
+        <h3 className="text-lg font-semibold">{info.title}</h3>
+        <div className="mt-1">
+          {info.details.map((detail, idx) => (
+            <p 
+              key={idx} 
+              style={{ 
+                fontWeight: "bold",       // makes details highlighted
+                color: info.color,        // highlight with same icon color
+                fontSize: "1.05rem"       // slightly larger
+              }}
+            >
+              {detail}
+            </p>
+          ))}
+        </div>
+      </div>
+    </div>
+  ))}
+  
 
   const features = [
     { icon: <FaRocket />, text: "Quick Response", color: "#0A1F44" },
@@ -249,15 +274,18 @@ function ContactUs() {
                   border: "1px solid rgba(255, 255, 255, 0.3)",
                 }}
               >
-                <Image
-                  src={contactImage}
-                  alt="MindCloud"
-                  style={{
-                    maxHeight: "200px",
-                    width: "auto",
-                    objectFit: "contain",
-                  }}
-                />
+   <Image
+  src={contactImage}
+  alt="MindCloud"
+  style={{
+    maxHeight: "200px",
+    width: "auto",
+    objectFit: "contain",
+    borderRadius: "15px" // 👈 makes the corners round
+  }}
+/>
+
+
                 <h3
                   style={{
                     color: "#0A1F44",
@@ -266,7 +294,7 @@ function ContactUs() {
                     marginBottom: "0.5rem",
                   }}
                 >
-                  MindCloud Systems
+                  MindCloud Technologies
                 </h3>
                 <p style={{ color: "#64748b", margin: 0 }}>
                   Your Partner in Digital Innovation
