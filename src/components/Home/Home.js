@@ -22,9 +22,9 @@ function Home() {
   ];
 
   const stats = [
-    { number: "150+", label: "Projects", color: "#0A1F44" },
+    { number: "10+", label: "Projects", color: "#0A1F44" },
     { number: "98%", label: "Success Rate", color: "#00b9ff" },
-    { number: "5+", label: "Years", color: "#993DFF" },
+    { number: "2+", label: "Years", color: "#993DFF" },
     { number: "24/7", label: "Support", color: "#0A1F44" },
   ];
 
