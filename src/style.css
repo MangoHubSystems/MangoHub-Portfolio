@@ -115,7 +115,7 @@ body {
 .logo {
   height: 5.0em !important;
   width: 5.2em !important;
-  border-radius: 30%; /* makes it fully round */
+  border-radius: 15%; /* makes it fully round */
   object-fit: cover;  /* keeps the image from stretching */
 }
 
