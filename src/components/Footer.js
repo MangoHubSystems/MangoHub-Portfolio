@@ -7,7 +7,7 @@ import {
   AiOutlineArrowUp,
 } from "react-icons/ai";
 import { FaLinkedinIn, FaEnvelope, FaMapMarkerAlt, FaPhone, FaHeart } from "react-icons/fa";
-import logo from "../Assets/mind.png"; // your logo
+import logo from "../Assets/mindcloud1.jpeg"; // your logo
 
 function Footer() {
   const year = new Date().getFullYear();
@@ -20,7 +20,7 @@ function Footer() {
     { icon: <AiFillGithub />, href: "https://github.com/mindcloud", color: "#0A1F44" },
     { icon: <AiOutlineTwitter />, href: "https://twitter.com/mindcloud", color: "#00b9ff" },
     { icon: <FaLinkedinIn />, href: "https://linkedin.com/company/mindcloud", color: "#993DFF" },
-    { icon: <AiFillInstagram />, href: "https://instagram.com/mindcloud", color: "#0A1F44" },
+    { icon: <AiFillInstagram />, href: "https://www.instagram.com/mindcloud__?igsh=MTY2bTZ1aTJtNDExMQ%3D%3D&utm_source=qr", color: "#0A1F44" },
   ];
 
   // Basic style for icons
@@ -69,7 +69,7 @@ function Footer() {
     width: "auto",
     marginBottom: "1rem",
     transition: "transform 0.3s",
-    borderRadius: "50%", // 👈 makes corners round
+    borderRadius: "10%", // 👈 makes corners round
   }}
 />
 

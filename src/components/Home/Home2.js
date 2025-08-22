@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import Tilt from "react-parallax-tilt";
-import myImg from "../../Assets/mind.png";
+import myImg from "../../Assets/mindcloud1.jpeg";
 import {
   AiFillGithub,
   AiOutlineTwitter,

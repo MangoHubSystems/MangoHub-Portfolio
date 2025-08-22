@@ -23,7 +23,7 @@ import {
 } from "react-icons/fa";
 import { FiSend } from "react-icons/fi";
 import Particle from "../Particle";
-import contactImage from "../../Assets/mind.png";
+import contactImage from "../../Assets/mindcloud1.jpeg"; // Update with your actual image path
 
 function ContactUs() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
