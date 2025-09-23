@@ -69,7 +69,7 @@ function NavBar() {
             <img
               src={logo}
               alt="MindCloud Logo"
-              className="img-fluid"
+              className="img-fluid brand-logo"
               style={{
                 height: 30,
                 width: "auto",
@@ -79,13 +79,14 @@ function NavBar() {
                 flex: "0 0 auto",
               }}
             />
-            <span className="brand-name text-truncate"
+            <span
+              className="brand-name text-truncate"
               style={{
                 color: "#0A1F44",
                 fontWeight: 800,
                 letterSpacing: "0.2px",
                 fontSize: "1.15rem",
-                lineHeight: 1,
+                lineHeight: 2,
                 minWidth: 0,
               }}
             >
@@ -93,7 +94,7 @@ function NavBar() {
             </span>
           </Navbar.Brand>
 
-          {/* Custom stylish hamburger (RIGHT on mobile) */}
+          {/* Stylish custom hamburger (RIGHT on mobile) */}
           <button
             type="button"
             aria-controls="main-nav"
@@ -108,7 +109,7 @@ function NavBar() {
           </button>
 
           {/* Collapsible menu */}
-          <Navbar.Collapse id="main-nav" className="order-2">
+          <Navbar.Collapse id="main-nav" className="order-2 mobile-menu">
             <Nav className="ms-auto" style={{ alignItems: "center", gap: "0.25rem" }}>
               {[
                 { path: "/", label: "Home", icon: <AiOutlineHome /> },
@@ -164,35 +165,29 @@ function NavBar() {
         </Container>
       </Navbar>
 
+      {/* Screen overlay (for a beautiful open state on mobile) */}
+      {expanded && (
+        <div
+          className="nav-overlay d-md-none"
+          onClick={() => setExpanded(false)}
+          aria-hidden="true"
+        />
+      )}
+
       {/* Styles */}
       <style>{`
         :root {
           --hamburger-color: #993DFF;
         }
 
-        /* Prevent wrapping in the navbar row and reserve space for the hamburger */
+        /* Keep items on one line and reserve space for the hamburger */
         .nav-inner {
           display: flex !important;
           align-items: center !important;
           flex-wrap: nowrap !important;
         }
-        /* On mobile, cap brand width so the hamburger always fits on the same line */
-        @media (max-width: 767.98px) {
-          .brand-wrap {
-            max-width: calc(100% - 56px); /* 44px btn + margins */
-            min-width: 0;
-          }
-          .brand-name {
-            display: inline-block;
-            max-width: 100%;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-          }
-          .hamburger { margin-left: auto !important; } /* push to right */
-        }
 
-        /* Fancy hamburger */
+        /* Fancy hamburger button */
         .hamburger {
           width: 44px;
           height: 44px;
@@ -271,16 +266,35 @@ function NavBar() {
           width: 100%;
         }
 
-        /* Mobile collapse panel styling */
+        /* Pretty mobile collapse + keep hamburger on the right */
         @media (max-width: 767.98px) {
+          .brand-wrap { 
+            max-width: calc(100% - 56px); /* 44px btn + margins */
+            min-width: 0; 
+          }
+          .brand-logo { height: 26px !important; margin-right: 8px !important; }
+          .brand-name { 
+            font-size: 1rem !important;   /* smaller brand on mobile */
+            letter-spacing: 0.1px !important;
+            max-width: 100%;
+            overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+          }
+
+          .hamburger { margin-left: auto !important; } /* push to right */
+
           .navbar,
           .navbar-collapse {
             background: rgba(255,255,255,0.98) !important;
-            box-shadow: 0 4px 20px rgba(10,31,68,0.08) !important;
+          }
+          /* Animate the dropdown panel for a beautiful reveal */
+          .mobile-menu.show {
+            animation: menuDrop 200ms ease-out;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(10,31,68,0.12);
+            overflow: hidden;
           }
           .navbar-collapse {
             margin-top: 0.5rem !important;
-            border-radius: 12px;
             padding: 0.4rem 0.25rem !important;
           }
           .navbar-nav .nav-link {
@@ -303,9 +317,27 @@ function NavBar() {
           }
         }
 
+        /* Overlay behind the open mobile menu */
+        .nav-overlay {
+          position: fixed;
+          inset: 0;
+          background: rgba(10,31,68,0.25);
+          backdrop-filter: blur(1.5px);
+          z-index: 9990; /* under the navbar (9999), above page content */
+          animation: overlayFade 160ms ease-out;
+        }
+
         /* Keep navbar slim on desktop too */
         @media (min-width: 768px) {
           .navbar .container, .navbar .container-fluid { min-height: 56px; }
+        }
+
+        @keyframes menuDrop {
+          from { opacity: 0; transform: translateY(-6px) scale(0.98); }
+          to   { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        @keyframes overlayFade {
+          from { opacity: 0; } to { opacity: 1; }
         }
       `}</style>
     </>
