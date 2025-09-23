@@ -104,7 +104,7 @@ function Footer() {
               <FaMapMarkerAlt style={{ ...iconStyle, marginRight: "0.75rem", color: "#0A1F44" }} />
               <div style={{ color: "#cbd5e1" }}>
                 <h6 style={{ marginBottom: "0.3rem", fontWeight: 600 }}>Our Location</h6>
-                <p style={{ marginBottom: 0, fontSize: "0.95rem" }}>No. 12, Web Avenue, Colombo, Sri Lanka</p>
+                <p style={{ marginBottom: 0, fontSize: "0.95rem" }}>Western Province, Sri Lanka</p>
               </div>
             </div>
 
@@ -135,7 +135,7 @@ function Footer() {
               <FaEnvelope style={{ ...iconStyle, marginRight: "0.75rem", color: "#00b9ff" }} />
               <div style={{ color: "#cbd5e1" }}>
                 <h6 style={{ marginBottom: "0.3rem", fontWeight: 600 }}>Email</h6>
-                <p style={{ marginBottom: 0, fontSize: "0.95rem" }}>mindcloudco@gmail.com</p>
+                <p style={{ marginBottom: 0, fontSize: "0.95rem" }}>mindcloudtech@gmail.com</p>
               </div>
             </div>
           </Col>

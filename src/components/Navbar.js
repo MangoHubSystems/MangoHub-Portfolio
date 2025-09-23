@@ -67,9 +67,9 @@ function NavBar() {
               alt="MindCloud Logo"
               className="img-fluid logo"
               style={{
-                height: 58,
+                height: 38,
                 width: "auto",
-                borderRadius: "50%",
+                borderRadius: "20%",
                 marginRight: 13,
                 boxShadow: "0 3px 10px rgba(0,0,0,.05)",
               }}
@@ -82,7 +82,7 @@ function NavBar() {
                 fontSize: "1.4rem",
               }}
             >
-              MindCloud
+              MindCloud Technologies
             </span>
           </Navbar.Brand>
           {/* MOBILE TOGGLER */}

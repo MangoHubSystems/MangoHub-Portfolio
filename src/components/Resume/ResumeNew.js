@@ -61,7 +61,7 @@ function ContactUs() {
     {
       icon: <FaMapMarkerAlt />,
       title: "Our Location",
-      details: ["No. 12, Web Avenue", "Colombo, Sri Lanka"],
+      details: ["Western Province","Sri Lanka"],
       color: "#0A1F44"
     },
     {
@@ -169,6 +169,7 @@ function ContactUs() {
                   fontWeight: 900,
                   color: "#0A1F44",
                   marginBottom: "1rem",
+                  marginTop: "1rem",
                   letterSpacing: "-0.02em",
                 }}
               >
@@ -251,39 +252,39 @@ function ContactUs() {
           </Col>
         </Row>
 
-        <Row className="align-items-center">
-          {/* Left Side: Contact Info */}
-          <Col lg={5} className="mb-5 mb-lg-0">
-            <div
-              style={{
-                opacity: isVisible ? 1 : 0,
-                transform: isVisible ? "translateX(0)" : "translateX(-50px)",
-                transition: "all 1s cubic-bezier(0.23, 1, 0.32, 1) 0.4s",
-              }}
-            >
-              {/* Company Image */}
-              <div
-                style={{
-                  background: "rgba(255, 255, 255, 0.8)",
-                  backdropFilter: "blur(20px)",
-                  borderRadius: "25px",
-                  padding: "2rem",
-                  marginBottom: "2rem",
-                  textAlign: "center",
-                  boxShadow: "0 15px 40px rgba(0, 0, 0, 0.1)",
-                  border: "1px solid rgba(255, 255, 255, 0.3)",
-                }}
-              >
-   <Image
-  src={contactImage}
-  alt="MindCloud"
-  style={{
-    maxHeight: "200px",
-    width: "auto",
-    objectFit: "contain",
-    borderRadius: "15px" // 👈 makes the corners round
-  }}
-/>
+                <Row className="align-items-center">
+                  {/* Left Side: Contact Info */}
+                  <Col lg={5} className="mb-5 mb-lg-0">
+                    <div
+                      style={{
+                        opacity: isVisible ? 1 : 0,
+                        transform: isVisible ? "translateX(0)" : "translateX(-50px)",
+                        transition: "all 1s cubic-bezier(0.23, 1, 0.32, 1) 0.4s",
+                      }}
+                    >
+                      {/* Company Image */}
+                      <div
+                        style={{
+                          background: "rgba(255, 255, 255, 0.8)",
+                          backdropFilter: "blur(20px)",
+                          borderRadius: "25px",
+                          padding: "2rem",
+                          marginBottom: "2rem",
+                          textAlign: "center",
+                          boxShadow: "0 15px 40px rgba(0, 0, 0, 0.1)",
+                          border: "1px solid rgba(255, 255, 255, 0.3)",
+                        }}
+                      >
+                        <Image
+                        src={contactImage}
+                        alt="MindCloud"
+                        style={{
+                          maxHeight: "200px",
+                          width: "auto",
+                          objectFit: "contain",
+                          borderRadius: "15px" // 👈 makes the corners round
+                        }}
+                      />
 
 
                 <h3
