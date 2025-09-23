@@ -208,16 +208,19 @@ function Home() {
 
               {/* Typing Animation (RESPONSIVE) */}
               <div
-                className="type-wrapper"
-                style={{
-                  marginBottom: "3rem",
-                  opacity: isVisible ? 1 : 0,
-                  transform: isVisible ? "translateY(0)" : "translateY(30px)",
-                  transition: "all 1s cubic-bezier(0.23, 1, 0.32, 1) 0.8s",
-                  display: "flex",
-                  justifyContent: "center", // default: center on desktop/tablet
-                }}
-              >
+  className="type-wrapper"
+  style={{
+    marginBottom: "3rem",
+    opacity: isVisible ? 2 : 0,                         // was 4 → must be ≤ 1
+    transform: isVisible ? "translate(25px, 0)" : "translate(8px, 30px)", // nudge right by 8px
+    transition: "all 1s cubic-bezier(0.30, 1, 0.40, 1) 0.8s",
+    display: "flex",
+    justifyContent: "center", // keeps it centered while nudged right a bit
+  }}
+>
+  
+
+
                 <Type />
               </div>
 

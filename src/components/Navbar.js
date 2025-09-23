@@ -24,7 +24,7 @@ function NavBar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close menu on route change (prevents “stuck” menu per-page)
+  // Close menu on route change
   useEffect(() => {
     setExpanded(false);
   }, [location.pathname]);
@@ -41,21 +41,14 @@ function NavBar() {
     lineHeight: 1.1,
   });
 
-  // Fixed purple for hamburger (as requested)
-  const togglerColor = "#993DFF";
-
   return (
     <>
       <Navbar
         expanded={expanded}
         fixed="top"
-        expand="md" // shows hamburger below md
+        expand="md" // hamburger appears < md
         data-bs-theme="light"
         style={{
-          // Custom hamburger icon (purple)
-          ["--bs-navbar-toggler-icon-bg"]: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='${encodeURIComponent(
-            togglerColor
-          )}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")`,
           background: scrolled ? "rgba(255,255,255,0.97)" : "rgba(255,255,255,0.85)",
           transition: "background 0.25s ease, box-shadow 0.25s ease",
           boxShadow: scrolled ? "0 4px 20px rgba(10,31,68,0.08)" : "none",
@@ -63,6 +56,7 @@ function NavBar() {
           paddingTop: 6,
           paddingBottom: 6,
           minHeight: 56,
+          position: "relative",
         }}
       >
         <Container>
@@ -93,29 +87,26 @@ function NavBar() {
             </span>
           </Navbar.Brand>
 
-          {/* Hamburger: RIGHT on mobile */}
-          <Navbar.Toggle
+          {/* Custom stylish hamburger (RIGHT on mobile) */}
+          <button
+            type="button"
             aria-controls="main-nav"
             aria-label="Toggle navigation"
-            onClick={() => setExpanded((prev) => !prev)}
-            // Right align on mobile; keep visible across pages; stay above collapse
-            className="ms-auto order-3 d-md-none"
-            style={{
-              border: 0,
-              boxShadow: "none",
-              padding: "0.25rem 0.55rem",
-              marginLeft: "auto",
-              position: "relative",
-              zIndex: 10001,
-            }}
-          />
+            aria-expanded={expanded}
+            onClick={() => setExpanded((p) => !p)}
+            className={`hamburger ms-auto order-3 d-md-none ${expanded ? "is-active" : ""}`}
+          >
+            <span className="line line-top" />
+            <span className="line line-mid" />
+            <span className="line line-bot" />
+          </button>
 
           {/* Collapsible menu */}
           <Navbar.Collapse id="main-nav" className="order-2">
             <Nav className="ms-auto" style={{ alignItems: "center", gap: "0.25rem" }}>
               {[
                 { path: "/", label: "Home", icon: <AiOutlineHome /> },
-                { path: "/about", label: "Services", icon: <AiOutlineUser /> }, // Services page
+                { path: "/about", label: "Services", icon: <AiOutlineUser /> },
                 { path: "/project", label: "Projects", icon: <AiOutlineFundProjectionScreen /> },
                 { path: "/resume", label: "Contact Us", icon: <CgFileDocument /> },
               ].map(({ path, label, icon }) => {
@@ -167,8 +158,74 @@ function NavBar() {
         </Container>
       </Navbar>
 
-      {/* Scoped styles */}
+      {/* Styles */}
       <style>{`
+        :root {
+          --hamburger-color: #993DFF;
+        }
+
+        /* Fancy hamburger */
+        .hamburger {
+          width: 44px;
+          height: 44px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          border: 0;
+          border-radius: 12px;
+          background: transparent;
+          cursor: pointer;
+          transition: box-shadow 0.2s ease, background 0.2s ease, transform 0.2s ease;
+          position: relative;
+          z-index: 10001;
+        }
+        .hamburger:hover {
+          background: rgba(153, 61, 255, 0.08);
+          box-shadow: 0 6px 18px rgba(153, 61, 255, 0.18);
+          transform: translateY(-1px);
+        }
+        .hamburger:active {
+          transform: translateY(0);
+          box-shadow: 0 3px 12px rgba(153, 61, 255, 0.16);
+        }
+        .hamburger:focus-visible {
+          outline: 2px solid rgba(153, 61, 255, 0.4);
+          outline-offset: 2px;
+        }
+        .hamburger .line {
+          display: block;
+          width: 24px;
+          height: 2.5px;
+          background: var(--hamburger-color);
+          border-radius: 100px;
+          position: absolute;
+          transition: transform 260ms cubic-bezier(0.4, 0, 0.2, 1), 
+                      opacity 220ms ease, 
+                      width 220ms ease, 
+                      background 220ms ease;
+        }
+        .hamburger .line-top   { transform: translateY(-7px); }
+        .hamburger .line-mid   { transform: translateY(0); }
+        .hamburger .line-bot   { transform: translateY(7px); }
+
+        .hamburger.is-active .line-top {
+          transform: rotate(45deg);
+        }
+        .hamburger.is-active .line-mid {
+          opacity: 0;
+          width: 0%;
+        }
+        .hamburger.is-active .line-bot {
+          transform: rotate(-45deg);
+        }
+
+        /* Reduce motion for accessibility */
+        @media (prefers-reduced-motion: reduce) {
+          .hamburger, .hamburger .line {
+            transition: none !important;
+          }
+        }
+
         .nav-link-custom {
           position: relative;
           text-decoration: none !important;
@@ -195,9 +252,9 @@ function NavBar() {
           width: 100%;
         }
 
-        /* Ensure hamburger sits on RIGHT on mobile regardless of page CSS */
+        /* Mobile collapse styling + ensure right-aligned hamburger */
         @media (max-width: 767.98px) {
-          .navbar .navbar-toggler {
+          .navbar .navbar-toggler, .hamburger {
             margin-left: auto !important; /* push right */
           }
           .navbar,
