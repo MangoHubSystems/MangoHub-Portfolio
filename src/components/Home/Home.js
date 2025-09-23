@@ -3,7 +3,7 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import Particle from "../Particle";
 import Home2 from "./Home2";
 import Type from "./Type";
-import { FaArrowRight, FaCode, FaCloud, FaPalette, FaCogs, FaRocket, FaShieldAlt } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
 
 function Home() {
   const [isVisible, setIsVisible] = useState(false);
@@ -11,15 +11,12 @@ function Home() {
 
   useEffect(() => {
     setIsVisible(true);
-    
     const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const services = [
-    
-  ];
+  const services = [];
 
   const stats = [
     { number: "10+", label: "Projects", color: "#0A1F44" },
@@ -36,7 +33,8 @@ function Home() {
         id="home"
         style={{
           minHeight: "100vh",
-          background: "linear-gradient(135deg,rgb(255, 255, 255) 0%,rgb(144, 184, 227) 100%)",
+          background:
+            "linear-gradient(135deg,rgb(255, 255, 255) 0%,rgb(144, 184, 227) 100%)",
           padding: 0,
           position: "relative",
           overflow: "hidden",
@@ -52,7 +50,8 @@ function Home() {
             right: "10%",
             width: "200px",
             height: "200px",
-            background: "linear-gradient(45deg, rgba(153, 61, 255, 0.1), rgba(0, 185, 255, 0.1))",
+            background:
+              "linear-gradient(45deg, rgba(153, 61, 255, 0.1), rgba(0, 185, 255, 0.1))",
             borderRadius: "50%",
             filter: "blur(80px)",
             animation: "float 8s ease-in-out infinite",
@@ -66,7 +65,8 @@ function Home() {
             left: "10%",
             width: "250px",
             height: "250px",
-            background: "linear-gradient(45deg, rgba(10, 31, 68, 0.1), rgba(153, 61, 255, 0.1))",
+            background:
+              "linear-gradient(45deg, rgba(10, 31, 68, 0.1), rgba(153, 61, 255, 0.1))",
             borderRadius: "50%",
             filter: "blur(100px)",
             animation: "float 10s ease-in-out infinite reverse",
@@ -75,14 +75,12 @@ function Home() {
         />
 
         {/* Main Content Container */}
-        <Container style={{ position: "relative", zIndex: 2, paddingTop: "130px", paddingBottom: "100px" }}>
-          
+        <Container
+          style={{ position: "relative", zIndex: 2, paddingTop: "130px", paddingBottom: "100px" }}
+        >
           {/* Hero Section */}
           <Row className="min-vh-100 align-items-center">
             <Col lg={12} className="text-center">
-              
-           
-
               {/* Main Heading */}
               <div
                 style={{
@@ -92,49 +90,50 @@ function Home() {
                   transition: "all 1.2s cubic-bezier(0.23, 1, 0.32, 1) 0.2s",
                 }}
               >
-               <h1
-  style={{
-    fontSize: "clamp(1.5rem, 5vw, 4rem)",
-    fontWeight: 400,
-    color: "purple", // Changed to purple
-    marginBottom: "1rem",
-    letterSpacing: "-0.02em",
-    lineHeight: 1.1,
-    marginTop: "-8rem",
-  }}
->
-  Hello! We Are
-</h1>
-<h1
-  style={{
-    fontSize: "clamp(4rem, 8vw, 8rem)",
-    fontWeight: 900, // Fixed from 1000 to 900 (max valid value)
-    color: "rgb(1, 40, 107)", // Changed from background to color
-    marginBottom: "2rem",
-    letterSpacing: "-0.03em",
-    lineHeight: 0.9,
-    position: "relative",
-    display: "inline-block",
-  }}
->
-  MindCloud
-  <span
-    style={{
-      fontSize: "1.15em", // Increased size for better visibility
-      position: "absolute",
-      top: "0.03em", // Adjusted positioning
-      right: "-1em", // Adjusted positioning
-      color: "#00b9ff", // Added explicit color
-      filter: "drop-shadow(0 0 20px rgba(0, 185, 255, 0.8))",
-      animation: "bounce 2s ease-in-out infinite",
-      fontWeight: "normal", // Reset font weight for emoji
-      zIndex: 20, // Ensure it's on top
-    }}
-  >
-    ☁️
-  </span>
-</h1>
-
+                <h1
+                  className="hero-hello"
+                  style={{
+                    fontSize: "clamp(1.5rem, 5vw, 4rem)",
+                    fontWeight: 400,
+                    color: "purple",
+                    marginBottom: "1rem",
+                    letterSpacing: "-0.02em",
+                    lineHeight: 1.1,
+                    // margin-top is now handled responsively in the <style> below
+                  }}
+                >
+                  Hello! We Are
+                </h1>
+                <h1
+                  className="hero-title"
+                  style={{
+                    fontSize: "clamp(3rem, 8vw, 8rem)",
+                    fontWeight: 900,
+                    color: "rgb(1, 40, 107)",
+                    marginBottom: "2rem",
+                    letterSpacing: "-0.03em",
+                    lineHeight: 0.9,
+                    position: "relative",
+                    display: "inline-block",
+                  }}
+                >
+                  MindCloud
+                  <span
+                    style={{
+                      fontSize: "1.15em",
+                      position: "absolute",
+                      top: "0.03em",
+                      right: "-1em",
+                      color: "#00b9ff",
+                      filter: "drop-shadow(0 0 20px rgba(0, 185, 255, 0.8))",
+                      animation: "bounce 2s ease-in-out infinite",
+                      fontWeight: "normal",
+                      zIndex: 20,
+                    }}
+                  >
+                    ☁️
+                  </span>
+                </h1>
               </div>
 
               {/* Tagline */}
@@ -187,14 +186,16 @@ function Home() {
                       cursor: "pointer",
                     }}
                     onMouseEnter={(e) => {
-                      e.target.style.background = `${service.color}10`;
-                      e.target.style.transform = "translateY(-3px) scale(1.05)";
-                      e.target.style.boxShadow = `0 8px 30px ${service.color}25`;
+                      const el = e.currentTarget;
+                      el.style.background = `${service.color}10`;
+                      el.style.transform = "translateY(-3px) scale(1.05)";
+                      el.style.boxShadow = `0 8px 30px ${service.color}25`;
                     }}
                     onMouseLeave={(e) => {
-                      e.target.style.background = "rgba(255, 255, 255, 0.8)";
-                      e.target.style.transform = "translateY(0) scale(1)";
-                      e.target.style.boxShadow = `0 4px 20px ${service.color}15`;
+                      const el = e.currentTarget;
+                      el.style.background = "rgba(255, 255, 255, 0.8)";
+                      el.style.transform = "translateY(0) scale(1)";
+                      el.style.boxShadow = `0 4px 20px ${service.color}15`;
                     }}
                   >
                     <span style={{ marginRight: "8px", fontSize: "1.1em" }}>
@@ -205,13 +206,16 @@ function Home() {
                 ))}
               </div>
 
-              {/* Typing Animation */}
+              {/* Typing Animation (RESPONSIVE) */}
               <div
+                className="type-wrapper"
                 style={{
                   marginBottom: "3rem",
                   opacity: isVisible ? 1 : 0,
                   transform: isVisible ? "translateY(0)" : "translateY(30px)",
                   transition: "all 1s cubic-bezier(0.23, 1, 0.32, 1) 0.8s",
+                  display: "flex",
+                  justifyContent: "center", // default: center on desktop/tablet
                 }}
               >
                 <Type />
@@ -245,15 +249,17 @@ function Home() {
                     letterSpacing: "0.5px",
                   }}
                   onMouseEnter={(e) => {
-                    e.target.style.transform = "translateY(-3px) scale(1.05)";
-                    e.target.style.boxShadow = "0 15px 40px rgba(10, 31, 68, 0.4)";
+                    const el = e.currentTarget;
+                    el.style.transform = "translateY(-3px) scale(1.05)";
+                    el.style.boxShadow = "0 15px 40px rgba(10, 31, 68, 0.4)";
                   }}
                   onMouseLeave={(e) => {
-                    e.target.style.transform = "translateY(0) scale(1)";
-                    e.target.style.boxShadow = "0 8px 30px rgba(10, 31, 68, 0.3)";
+                    const el = e.currentTarget;
+                    el.style.transform = "translateY(0) scale(1)";
+                    el.style.boxShadow = "0 8px 30px rgba(10, 31, 68, 0.3)";
                   }}
                 >
-                   Explore More
+                  Explore More
                   <FaArrowRight style={{ marginLeft: "10px", fontSize: "0.9em" }} />
                 </Button>
 
@@ -272,14 +278,16 @@ function Home() {
                     letterSpacing: "0.5px",
                   }}
                   onMouseEnter={(e) => {
-                    e.target.style.background = "rgba(10, 31, 68, 0.1)";
-                    e.target.style.transform = "translateY(-3px)";
-                    e.target.style.borderColor = "#0A1F44";
+                    const el = e.currentTarget;
+                    el.style.background = "rgba(10, 31, 68, 0.1)";
+                    el.style.transform = "translateY(-3px)";
+                    el.style.borderColor = "#0A1F44";
                   }}
                   onMouseLeave={(e) => {
-                    e.target.style.background = "rgba(255, 255, 255, 0.8)";
-                    e.target.style.transform = "translateY(0)";
-                    e.target.style.borderColor = "rgba(10, 31, 68, 0.2)";
+                    const el = e.currentTarget;
+                    el.style.background = "rgba(255, 255, 255, 0.8)";
+                    el.style.transform = "translateY(0)";
+                    el.style.borderColor = "rgba(10, 31, 68, 0.2)";
                   }}
                 >
                   Watch Demo
@@ -299,7 +307,8 @@ function Home() {
                   margin: "0 auto",
                   opacity: isVisible ? 1 : 0,
                   transform: isVisible ? "translateY(0)" : "translateY(50px)",
-                  transition: "all 1s cubic-bezier(0.23, 1, 0.32, 1) 1.2s",
+                  transition:
+                    "all 1s cubic-bezier(0.23, 1, 0.32, 1) 1.2s",
                 }}
               >
                 <Row>
@@ -332,7 +341,7 @@ function Home() {
           </Row>
         </Container>
 
-        {/* Animation Styles */}
+        {/* Animation & Responsive Styles */}
         <style>{`
           @keyframes float {
             0%, 100% { transform: translateY(0px); }
@@ -341,6 +350,33 @@ function Home() {
           @keyframes bounce {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
+          }
+
+          /* ---- Type block responsiveness ----
+             Desktop/tablet: centered.
+             Mobile: add margin-top and margin-left, left-align the text. */
+          @media (max-width: 767.98px) {
+            .type-wrapper {
+              justify-content: flex-start !important;
+              text-align: left !important;
+              margin-top: 1rem !important;
+              margin-left: 1rem !important;
+            }
+            /* add a bit of space ABOVE the "Hello! We Are" line on mobile */
+            .hero-hello {
+              margin-top: 0.75rem !important;
+            }
+          }
+
+          /* Slightly more spacing on very small phones */
+          @media (max-width: 575.98px) {
+            .type-wrapper {
+              margin-top: 1.25rem !important;
+              margin-left: 1.1rem !important;
+            }
+            .hero-hello {
+              margin-top: 0.9rem !important;
+            }
           }
         `}</style>
       </Container>

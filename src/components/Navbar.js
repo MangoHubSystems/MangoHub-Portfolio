@@ -14,63 +14,69 @@ import {
 } from "react-icons/ai";
 
 function NavBar() {
-  const [expand, updateExpanded] = useState(false);
-  const [navColour, updateNavbar] = useState(false);
+  const [expanded, setExpanded] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
-    function scrollHandler() {
-      if (window.scrollY >= 20) {
-        updateNavbar(true);
-      } else {
-        updateNavbar(false);
-      }
-    }
-    window.addEventListener("scroll", scrollHandler);
-    return () => window.removeEventListener("scroll", scrollHandler);
+    const onScroll = () => setScrolled(window.scrollY >= 16);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const handleToggle = () => {
-    updateExpanded((prev) => (prev ? false : "expanded"));
-  };
+  // Close menu on route change (prevents “stuck” menu per-page)
+  useEffect(() => {
+    setExpanded(false);
+  }, [location.pathname]);
 
-  const navLinkStyle = (match) => ({
+  const navLinkStyle = (active) => ({
     color: "#0A1F44",
-    fontWeight: match ? "700" : "600",
+    fontWeight: active ? 700 : 600,
     display: "flex",
     alignItems: "center",
-    fontSize: "1rem",
-    padding: "0.75rem 1.2rem",
+    fontSize: "0.98rem",
+    padding: "0.5rem 0.9rem",
     position: "relative",
     textDecoration: "none",
+    lineHeight: 1.1,
   });
+
+  // Fixed purple for hamburger (as requested)
+  const togglerColor = "#993DFF";
 
   return (
     <>
       <Navbar
-        expanded={expand}
+        expanded={expanded}
         fixed="top"
-        expand="md"
-        className={navColour ? "sticky" : "navbar"}
+        expand="md" // shows hamburger below md
+        data-bs-theme="light"
         style={{
-          background: navColour ? "rgba(255,255,255,0.97)" : "rgba(255,255,255,0.7)",
-          transition: "background 0.3s",
-          boxShadow: navColour ? "0 4px 24px rgba(10,31,68,0.07)" : "none",
+          // Custom hamburger icon (purple)
+          ["--bs-navbar-toggler-icon-bg"]: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='${encodeURIComponent(
+            togglerColor
+          )}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")`,
+          background: scrolled ? "rgba(255,255,255,0.97)" : "rgba(255,255,255,0.85)",
+          transition: "background 0.25s ease, box-shadow 0.25s ease",
+          boxShadow: scrolled ? "0 4px 20px rgba(10,31,68,0.08)" : "none",
           zIndex: 9999,
+          paddingTop: 6,
+          paddingBottom: 6,
+          minHeight: 56,
         }}
       >
         <Container>
-          {/* LOGO */}
-          <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
+          {/* Brand */}
+          <Navbar.Brand as={Link} to="/" className="d-flex align-items-center order-1">
             <img
               src={logo}
               alt="MindCloud Logo"
-              className="img-fluid logo"
+              className="img-fluid"
               style={{
-                height: 38,
+                height: 30,
                 width: "auto",
                 borderRadius: "20%",
-                marginRight: 13,
+                marginRight: 10,
                 boxShadow: "0 3px 10px rgba(0,0,0,.05)",
               }}
             />
@@ -78,36 +84,38 @@ function NavBar() {
               style={{
                 color: "#0A1F44",
                 fontWeight: 800,
-                letterSpacing: "0.5px",
-                fontSize: "1.4rem",
+                letterSpacing: "0.2px",
+                fontSize: "1.15rem",
+                lineHeight: 1,
               }}
             >
               MindCloud Technologies
             </span>
           </Navbar.Brand>
-          {/* MOBILE TOGGLER */}
+
+          {/* Hamburger: RIGHT on mobile */}
           <Navbar.Toggle
-            aria-controls="responsive-navbar-nav"
-            onClick={handleToggle}
+            aria-controls="main-nav"
+            aria-label="Toggle navigation"
+            onClick={() => setExpanded((prev) => !prev)}
+            // Right align on mobile; keep visible across pages; stay above collapse
+            className="ms-auto order-3 d-md-none"
             style={{
-              border: "none",
+              border: 0,
               boxShadow: "none",
-              marginRight: "-0.1rem",
+              padding: "0.25rem 0.55rem",
+              marginLeft: "auto",
+              position: "relative",
+              zIndex: 10001,
             }}
           />
-          <Navbar.Collapse
-            id="responsive-navbar-nav"
-            style={{
-              background: "rgba(255, 255, 255, 0.98)",
-              borderRadius: "12px",
-              padding: window.innerWidth < 768 ? "1rem 0.8rem" : 0,
-              marginTop: window.innerWidth < 768 ? "0.8rem" : 0,
-            }}
-          >
-            <Nav className="ms-auto" style={{ alignItems: "center", gap: "0.5rem" }}>
+
+          {/* Collapsible menu */}
+          <Navbar.Collapse id="main-nav" className="order-2">
+            <Nav className="ms-auto" style={{ alignItems: "center", gap: "0.25rem" }}>
               {[
                 { path: "/", label: "Home", icon: <AiOutlineHome /> },
-                { path: "/about", label: "Services", icon: <AiOutlineUser /> },
+                { path: "/about", label: "Services", icon: <AiOutlineUser /> }, // Services page
                 { path: "/project", label: "Projects", icon: <AiOutlineFundProjectionScreen /> },
                 { path: "/resume", label: "Contact Us", icon: <CgFileDocument /> },
               ].map(({ path, label, icon }) => {
@@ -117,16 +125,15 @@ function NavBar() {
                     <Nav.Link
                       as={Link}
                       to={path}
-                      onClick={() => updateExpanded(false)}
+                      onClick={() => setExpanded(false)}
                       style={navLinkStyle(active)}
                       className={`nav-link-custom${active ? " active" : ""}`}
                     >
-                      <span style={{ marginRight: 6, display: "flex", alignItems: "center" }}>{icon}</span>
+                      <span style={{ marginRight: 6, display: "flex", alignItems: "center" }}>
+                        {icon}
+                      </span>
                       {label}
-                      <span
-                        className={`underline${active ? " active" : ""}`}
-                        aria-hidden="true"
-                      />
+                      <span className={`underline${active ? " active" : ""}`} aria-hidden="true" />
                     </Nav.Link>
                   </Nav.Item>
                 );
@@ -142,16 +149,16 @@ function NavBar() {
                     background: "linear-gradient(135deg, #993DFF, #00b9ff)",
                     color: "white",
                     border: "none",
-                    borderRadius: "30px",
+                    borderRadius: "24px",
                     display: "flex",
                     alignItems: "center",
                     fontWeight: 700,
-                    fontSize: "1rem",
-                    padding: "0.35rem 1rem",
+                    fontSize: "0.95rem",
+                    padding: "0.35rem 0.9rem",
                   }}
                 >
-                  <CgGitFork style={{ fontSize: "1.2em" }} />{" "}
-                  <AiFillStar style={{ fontSize: "1.1em" }} />
+                  <CgGitFork style={{ fontSize: "1.1em" }} />
+                  <AiFillStar style={{ fontSize: "1.05em", marginLeft: 6 }} />
                   <span className="d-none d-md-inline ms-2">Star</span>
                 </Button>
               </Nav.Item>
@@ -160,12 +167,12 @@ function NavBar() {
         </Container>
       </Navbar>
 
-      {/* Custom styling for underline */}
+      {/* Scoped styles */}
       <style>{`
         .nav-link-custom {
           position: relative;
           text-decoration: none !important;
-          transition: color 0.3s ease;
+          transition: color 0.2s ease;
         }
         .nav-link-custom:hover, 
         .nav-link-custom:focus {
@@ -175,11 +182,11 @@ function NavBar() {
           position: absolute;
           left: 0;
           bottom: -6px;
-          height: 2.5px;
+          height: 2px;
           width: 0;
           background: #993DFF;
           border-radius: 2px;
-          transition: width 0.3s ease;
+          transition: width 0.25s ease;
           pointer-events: none;
         }
         .nav-link-custom:hover .underline,
@@ -188,34 +195,45 @@ function NavBar() {
           width: 100%;
         }
 
-        @media (max-width: 767px) {
-          .navbar, .navbar-collapse {
+        /* Ensure hamburger sits on RIGHT on mobile regardless of page CSS */
+        @media (max-width: 767.98px) {
+          .navbar .navbar-toggler {
+            margin-left: auto !important; /* push right */
+          }
+          .navbar,
+          .navbar-collapse {
             background: rgba(255,255,255,0.98) !important;
-            box-shadow: 0 4px 24px rgba(10,31,68,0.07) !important;
-            border-radius: 0 0 18px 18px;
-            transition: background 0.3s;
+            box-shadow: 0 4px 20px rgba(10,31,68,0.08) !important;
           }
           .navbar-collapse {
-            margin-top: 1rem !important;
-            padding: 0.5rem 0 !important;
+            margin-top: 0.5rem !important;
+            border-radius: 12px;
+            padding: 0.4rem 0.25rem !important;
           }
           .navbar-nav .nav-link {
             width: 100%;
             text-align: center;
-            padding: 0.7rem 1rem !important;
-            font-size: 1.1rem;
+            padding: 0.55rem 0.75rem !important;
+            font-size: 1.02rem;
             color: #0A1F44 !important;
+            border-radius: 28px !important;
           }
           .navbar-nav .nav-link:hover,
           .navbar-nav .nav-link:focus {
             background-color: #F5F7FF !important;
             color: #993DFF !important;
-            border-radius: 30px !important;
           }
           .fork-btn-inner {
             width: 100%;
             justify-content: center;
-            margin-top: 0.6rem;
+            margin-top: 0.5rem;
+          }
+        }
+
+        /* Keep navbar slim on desktop too */
+        @media (min-width: 768px) {
+          .navbar .container, .navbar .container-fluid {
+            min-height: 56px;
           }
         }
       `}</style>
