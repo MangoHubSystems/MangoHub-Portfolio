@@ -46,7 +46,7 @@ function NavBar() {
       <Navbar
         expanded={expanded}
         fixed="top"
-        expand="md" // hamburger appears < md
+        expand="md"
         data-bs-theme="light"
         style={{
           background: scrolled ? "rgba(255,255,255,0.97)" : "rgba(255,255,255,0.85)",
@@ -59,9 +59,13 @@ function NavBar() {
           position: "relative",
         }}
       >
-        <Container>
+        <Container className="nav-inner">
           {/* Brand */}
-          <Navbar.Brand as={Link} to="/" className="d-flex align-items-center order-1">
+          <Navbar.Brand
+            as={Link}
+            to="/"
+            className="d-flex align-items-center order-1 brand-wrap text-truncate"
+          >
             <img
               src={logo}
               alt="MindCloud Logo"
@@ -72,15 +76,17 @@ function NavBar() {
                 borderRadius: "20%",
                 marginRight: 10,
                 boxShadow: "0 3px 10px rgba(0,0,0,.05)",
+                flex: "0 0 auto",
               }}
             />
-            <span
+            <span className="brand-name text-truncate"
               style={{
                 color: "#0A1F44",
                 fontWeight: 800,
                 letterSpacing: "0.2px",
                 fontSize: "1.15rem",
                 lineHeight: 1,
+                minWidth: 0,
               }}
             >
               MindCloud Technologies
@@ -164,6 +170,28 @@ function NavBar() {
           --hamburger-color: #993DFF;
         }
 
+        /* Prevent wrapping in the navbar row and reserve space for the hamburger */
+        .nav-inner {
+          display: flex !important;
+          align-items: center !important;
+          flex-wrap: nowrap !important;
+        }
+        /* On mobile, cap brand width so the hamburger always fits on the same line */
+        @media (max-width: 767.98px) {
+          .brand-wrap {
+            max-width: calc(100% - 56px); /* 44px btn + margins */
+            min-width: 0;
+          }
+          .brand-name {
+            display: inline-block;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+          .hamburger { margin-left: auto !important; } /* push to right */
+        }
+
         /* Fancy hamburger */
         .hamburger {
           width: 44px;
@@ -178,6 +206,7 @@ function NavBar() {
           transition: box-shadow 0.2s ease, background 0.2s ease, transform 0.2s ease;
           position: relative;
           z-index: 10001;
+          flex: 0 0 auto;
         }
         .hamburger:hover {
           background: rgba(153, 61, 255, 0.08);
@@ -199,31 +228,21 @@ function NavBar() {
           background: var(--hamburger-color);
           border-radius: 100px;
           position: absolute;
-          transition: transform 260ms cubic-bezier(0.4, 0, 0.2, 1), 
-                      opacity 220ms ease, 
-                      width 220ms ease, 
+          transition: transform 260ms cubic-bezier(0.4, 0, 0.2, 1),
+                      opacity 220ms ease,
+                      width 220ms ease,
                       background 220ms ease;
         }
-        .hamburger .line-top   { transform: translateY(-7px); }
-        .hamburger .line-mid   { transform: translateY(0); }
-        .hamburger .line-bot   { transform: translateY(7px); }
+        .hamburger .line-top { transform: translateY(-7px); }
+        .hamburger .line-mid { transform: translateY(0); }
+        .hamburger .line-bot { transform: translateY(7px); }
 
-        .hamburger.is-active .line-top {
-          transform: rotate(45deg);
-        }
-        .hamburger.is-active .line-mid {
-          opacity: 0;
-          width: 0%;
-        }
-        .hamburger.is-active .line-bot {
-          transform: rotate(-45deg);
-        }
+        .hamburger.is-active .line-top { transform: rotate(45deg); }
+        .hamburger.is-active .line-mid { opacity: 0; width: 0%; }
+        .hamburger.is-active .line-bot { transform: rotate(-45deg); }
 
-        /* Reduce motion for accessibility */
         @media (prefers-reduced-motion: reduce) {
-          .hamburger, .hamburger .line {
-            transition: none !important;
-          }
+          .hamburger, .hamburger .line { transition: none !important; }
         }
 
         .nav-link-custom {
@@ -252,11 +271,8 @@ function NavBar() {
           width: 100%;
         }
 
-        /* Mobile collapse styling + ensure right-aligned hamburger */
+        /* Mobile collapse panel styling */
         @media (max-width: 767.98px) {
-          .navbar .navbar-toggler, .hamburger {
-            margin-left: auto !important; /* push right */
-          }
           .navbar,
           .navbar-collapse {
             background: rgba(255,255,255,0.98) !important;
@@ -289,9 +305,7 @@ function NavBar() {
 
         /* Keep navbar slim on desktop too */
         @media (min-width: 768px) {
-          .navbar .container, .navbar .container-fluid {
-            min-height: 56px;
-          }
+          .navbar .container, .navbar .container-fluid { min-height: 56px; }
         }
       `}</style>
     </>
